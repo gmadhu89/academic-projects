@@ -1,2 +1,1 @@
-# academic-projects
-Projects implemented during in academic program.
+Projects implemented in Masters academic program.
