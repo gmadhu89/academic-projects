@@ -1,0 +1,221 @@
+---
+title: "Untitled"
+author: "Regression Project"
+date: "4/8/2021"
+output: html_document
+---
+
+```{r}
+
+
+library(dplyr)
+library(stringr)
+
+ 
+
+# Reading the data file
+mental_health_data <- data
+
+ 
+
+# Dropping column with very sparse value
+mental_health_data$Tech_Role <- NULL
+
+ 
+
+# Removing spaces from a column
+mental_health_data$Gender <- trimws(mental_health_data$Gender)
+
+ 
+
+# Modifying data in No_Employees to have mean of values of the range
+mental_health_data[mental_health_data[,2] == "25-Jun",2] <- "6-25"
+mental_health_data[mental_health_data[,2] == "5-Jan",2] <- "1-5"
+
+ 
+
+# Converting Range values in No. of Employees in the organization to the mean of the range.
+for (row in 1:nrow(mental_health_data)) {
+  if (str_detect(tidyr::replace_na(mental_health_data[row,2],""),"-") == TRUE) {
+    mental_health_data[row,2] = as.integer(mean(as.integer(unlist(strsplit(mental_health_data[row,2],"-")))))
+  }
+
+ 
+
+  if (tidyr::replace_na(mental_health_data[row,2],"") == "More than 1000") {
+    mental_health_data[row,2] = as.integer(1000)
+  }
+
+ 
+
+}
+mental_health_data$No_Employees <- as.integer(mental_health_data$No_Employees)
+
+ 
+
+# Converting all blank strings to NA
+mental_health_data <- mutate_all(mental_health_data, list(~na_if(.,"")))
+mental_health_data <- mutate_all(mental_health_data, list(~na_if(.,"NULL")))
+
+ 
+
+
+## Converting target column "May be" to "Yes" to perform a logistic regression
+## Converting Yes to 1 and No to 0
+mental_health_data$Current_Mental_Illness <- as.character(mental_health_data$Current_Mental_Illness)
+mental_health_data[mental_health_data$Current_Mental_Illness == 'Maybe',28] <- 1
+mental_health_data[mental_health_data$Current_Mental_Illness == 'Yes',28] <- 1
+mental_health_data[mental_health_data$Current_Mental_Illness == 'No',28] <- 0
+
+ 
+
+mental_health_data$Current_Mental_Illness <- as.numeric(mental_health_data$Current_Mental_Illness)
+
+ 
+
+# Converting categorical columns to factors
+mental_health_data[,4:15] = lapply(mental_health_data[,4:15], as.factor)
+mental_health_data[,17:27] = lapply(mental_health_data[,17:27], as.factor)
+mental_health_data$Diagnosed_Mental_condition_Med_prof = as.factor(mental_health_data$Diagnosed_Mental_condition_Med_prof)
+mental_health_data$Treatment_from_Mental_health_professional = as.factor(mental_health_data$Treatment_from_Mental_health_professional)
+mental_health_data[,31:32] = lapply(mental_health_data[,31:32], as.factor)
+mental_health_data[,34:36] = lapply(mental_health_data[,34:36], as.factor)
+
+ 
+
+# Viewing the columns and their types
+str(mental_health_data)
+
+ 
+
+# Imputing NA data with values for integer/categorical columns
+library(mice)
+data_imputed <- mice(mental_health_data)
+d1 <- complete(data_imputed)
+
+library(randomForest)
+d1$Current_Mental_Illness<-as.factor(d1$Current_Mental_Illness)
+d1$Self_Employed<-as.factor(d1$Self_Employed)
+d1$Tech_Company<-as.factor(d1$Tech_Company)
+d1$Treatment_from_Mental_health_professional<-as.factor(d1$Treatment_from_Mental_health_professional)
+d1$Previous_Employers<-as.factor(d1$Previous_Employers)
+
+```
+
+
+```{r}
+# Employment related factors
+d1$Diag_and_Current<-ifelse(((d1$Current_Mental_Illness == 1) | (d1$Diagnosed_Mental_condition_Med_prof == "Yes")),1,0 )
+d1$Diag_and_Current<-as.factor(d1$Diag_and_Current)
+rf1<- randomForest(Diag_and_Current ~ Past_Mental_Illness + Self_Employed + No_Employees + Age + Gender + Work_Remotely + Family_History_Mental_Illness ,data=d1,ntree=1000,mtry=2, importance = TRUE)
+varImpPlot(rf1)
+rf1
+pred1=predict(rf1,type = "prob")
+library(ROCR)
+perf = prediction(pred1[,2], d1$Diag_and_Current)
+auc = performance(perf, "auc")
+auc
+pred3 = performance(perf, "tpr","fpr")
+plot(pred3,main="ROC Curve for Random Forest",col=2,lwd=2)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r}
+
+rf2<- randomForest(Current_Mental_Illness ~ Does_Emp_Prov_Mental_Benefits + Has_Employer_Discussed_Mental_Health + Does_Emp_Offer_Resources_Mental_Concerns + Is_Anonymity_protected_using_mentalcare + Asking_Leave_DueTo_Mental_Health_Issue + Discuss_MentalHealth_Negative_Consequence  + Emp_takes_mental_health_seriously +Heard_Neg_consequence_coworkers_mental_health ,data=d1,ntree=100,mtry=2, importance = TRUE)
+varImpPlot(rf2)
+rf2
+
+pred1=predict(rf2,type = "prob")
+library(ROCR)
+perf = prediction(pred1[,2], d1$Current_Mental_Illness)
+auc = performance(perf, "auc")
+auc
+pred3 = performance(perf, "tpr","fpr")
+plot(pred3,main="ROC Curve for Random Forest",col=2,lwd=2)
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+
+rf3<- randomForest(Diag_and_Current ~ Previous_Employers + Prev_Emp_Benefits + Aware_Options_Prev_Mental_Care + Prev_Emp_Discuss_Negative_Cons + Prev_Empl_Mental_Health_Weighed_Seriously ,data=d1,ntree=1000,mtry=2, importance = TRUE)
+varImpPlot(rf3)
+rf3
+
+
+pred1=predict(rf3,type = "prob")
+library(ROCR)
+perf = prediction(pred1[,2], d1$Current_Mental_Illness)
+# 1. Area under curve
+auc = performance(perf, "auc")
+auc
+# 2. True Positive and Negative Rate
+pred3 = performance(perf, "tpr","fpr")
+# 3. Plot the ROC curve
+plot(pred3,main="ROC Curve for Random Forest",col=2,lwd=2)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+
+library(randomForest)
+#d1$Current_Mental_Illness<-as.factor(d1$Current_Mental_Illness)
+rf4<- randomForest(Diag_and_Current ~ Past_Mental_Illness + Previous_Employers + Prev_Emp_Benefits + Aware_Options_Prev_Mental_Care + Prev_Emp_Discuss_Negative_Cons + Prev_Empl_Mental_Health_Weighed_Seriously + Does_Emp_Prov_Mental_Benefits + Has_Employer_Discussed_Mental_Health + Does_Emp_Offer_Resources_Mental_Concerns + Is_Anonymity_protected_using_mentalcare + Asking_Leave_DueTo_Mental_Health_Issue + Discuss_MentalHealth_Negative_Consequence  + Emp_takes_mental_health_seriously +Heard_Neg_consequence_coworkers_mental_health + Self_Employed + No_Employees + Age + Gender + Work_Remotely + Family_History_Mental_Illness,data=d1,ntree=100,mtry=2, importance = TRUE)
+varImpPlot(rf4)
+
+rf4
+
+
+
+pred1=predict(rf4,type = "prob")
+library(ROCR)
+perf = prediction(pred1[,2], d1$Current_Mental_Illness)
+# 1. Area under curve
+auc = performance(perf, "auc")
+auc
+# 2. True Positive and Negative Rate
+pred3 = performance(perf, "tpr","fpr")
+# 3. Plot the ROC curve
+plot(pred3,main="ROC Curve for Random Forest",col=2,lwd=2)
+
+```
+
+
+```{r}
+
+library(randomForest)
+#d1$Current_Mental_Illness<-as.factor(d1$Current_Mental_Illness)
+rf4<- randomForest(Diag_and_Current ~ Past_Mental_Illness + Prev_Emp_Discuss_Negative_Cons +  Discuss_MentalHealth_Negative_Consequence + Family_History_Mental_Illness,data=d1,ntree=1000,mtry=4, importance = TRUE)
+varImpPlot(rf4)
+rf4
+
+pred1=predict(rf4,type = "prob")
+library(ROCR)
+perf = prediction(pred1[,2], d1$Current_Mental_Illness)
+# 1. Area under curve
+auc = performance(perf, "auc")
+auc
+# 2. True Positive and Negative Rate
+pred3 = performance(perf, "tpr","fpr")
+# 3. Plot the ROC curve
+plot(pred3,main="ROC Curve for Random Forest",col=2,lwd=2)
+
+
+
+```

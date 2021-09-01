@@ -1,0 +1,160 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## 1.	Using the GermanCredit data set germancredit.txt from http://archive.ics.uci.edu/ml/machine-learning-databases/statlog/german / (description at http://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29 ), use logistic regression to find a good predictive model for whether credit applicants are good credit risks or not.  Show your model (factors used and their coefficients), the software output, and the quality of fit.  You can use the glm function in R. To get a logistic regression (logit) model on data where the response is either zero or one, use family=binomial(link=”logit”) in your glm function call.
+
+## 2.	Because the model gives a result between 0 and 1, it requires setting a threshold probability to separate between “good” and “bad” answers.  In this data set, they estimate that incorrectly identifying a bad customer as good, is 5 times worse than incorrectly classifying a good customer as bad.  Determine a good threshold probability based on your model.
+
+## Solution
+
+Building a Logistic Regression Model for the dataset
+```{r}
+set.seed(123)
+
+germancredit <- read.table("germancredit.txt",sep=" ")
+head(germancredit)
+
+```
+# The data set has many categorical variables. The last column is the response variable, which has values 1 and 2. Let's convert them to 0(Bad) and 1(Good) for our purpose.
+
+```{r}
+library(dplyr)
+
+germancredit <- germancredit %>% mutate(V21 = case_when(V21 == 1 ~ 1, V21 == 2 ~ 0))
+head(germancredit)
+
+```
+# Splitting the data into test and train and fitting a logistic regression model on the training dataset
+
+```{r}
+#nrow(germancredit)  1000
+#Doing an 80/20 split for cross validation
+
+split <- sample(1:nrow(germancredit),as.integer(0.8*nrow(germancredit)))
+credit_train <- germancredit[split,]
+credit_test <- germancredit[-split,]
+
+# Fitting a logistic Regression model
+logis_model <- glm(V21 ~., data=credit_train, family=binomial(link="logit"))
+
+summary(logis_model)
+
+```
+# We can observe the model coefficients here.Since we have categorical values for the predictor vaiables, the coeffcients show the significane for each category value in the variable. For eg, for the first variable V1, rows having values "A14" are most significant in explaining the model.
+
+# Also, the AIC value for this model is 803.09 with a residual deviance of 705.09
+
+```{r}
+# Considering 0.5 as a threshold, let's predict the responses on the test data with this base model
+
+pred_base <- predict(logis_model,newdata=credit_test[,-21],type="response")
+
+# Building a confusion Matrix
+table1 <- as.matrix(table(credit_test[,21],round(pred_base)))
+names(dimnames(table1)) <- c("Actual","Predicted")
+
+table1
+
+#Considering cost for misclassification of "good" as bad as 1 , and "bad" as "good" as 5, the cost will be
+table1[3]*5 + table1[2]*1
+```
+# In this case, we observe that we mis-classify the bad customer as good more (31). Since the cost of identifying a bad customer as good is 5 times the cost of identifying good customers as bad, we have to consider tuning this model better.
+
+# In this case the cost is 171 for this base model with threshold of 0.5
+
+```{r}
+# Identifying the ROC for this model
+library(pROC)
+roc_value <- roc(credit_test[,21], round(pred_base))
+
+plot(roc(credit_test[,21], round(pred_base)))
+
+roc_value
+```
+# The Area under the curve for a 0.5 threshold is 0.717
+
+# Iterating through different values of threshold, let's check the threshold that gives the minimum cost
+```{r}
+
+table_res <- data.frame(matrix(nrow=5, ncol=2))
+colnames(table_res) <- c("threshold","cost")
+i=1
+threshold <- seq(0,1, by = 0.01)
+for (t in threshold) {
+  
+  pred_base_df = as.data.frame(pred_base)
+  pred_base_df$new[pred_base_df['pred_base'] > t] <- 1
+  pred_base_df$new[pred_base_df['pred_base'] < t] <- 0
+  
+  table1_thresh <- as.matrix(table(credit_test[,21],pred_base_df$new))
+  names(dimnames(table1_thresh)) <- c("Actual","Predicted")
+  
+  #Calculating cost
+  table_res[i,2] <- table1_thresh[3]*5 + table1_thresh[2]*1
+  table_res[i,1] <- t
+  i = i+1
+}
+
+table_res[is.na(table_res)] <- 9999
+table_res[min(table_res[,2]),]
+
+```
+# From the results we see that a threshold of 0.9 gives minimum score of 113. Lets manually view the table for misclassifications for thresholds above 0.5 (i.e 0.6,0.7, 0.8 and 0.9)
+
+```{r}
+## Threshold = 0.6
+pred_base_df = as.data.frame(pred_base)
+pred_base_df$new[pred_base_df['pred_base'] > 0.6] <- 1
+pred_base_df$new[pred_base_df['pred_base'] < 0.6] <- 0
+
+test1 <- as.matrix(table(credit_test[,21],pred_base_df$new))
+names(dimnames(test1)) <- c("Actual","Predicted")
+test1
+roc_value_0.6 <- roc(credit_test[,21], pred_base_df$new)
+roc_value_0.6
+
+
+## Threshold = 0.7
+pred_base_df = as.data.frame(pred_base)
+pred_base_df$new[pred_base_df['pred_base'] > 0.7] <- 1
+pred_base_df$new[pred_base_df['pred_base'] < 0.7] <- 0
+
+test1 <- as.matrix(table(credit_test[,21],pred_base_df$new))
+names(dimnames(test1)) <- c("Actual","Predicted")
+test1
+roc_value_0.7 <- roc(credit_test[,21], pred_base_df$new)
+roc_value_0.7
+
+## Threshold = 0.8
+pred_base_df = as.data.frame(pred_base)
+pred_base_df$new[pred_base_df['pred_base'] > 0.8] <- 1
+pred_base_df$new[pred_base_df['pred_base'] < 0.8] <- 0
+
+test2 <- as.matrix(table(credit_test[,21],pred_base_df$new))
+names(dimnames(test2)) <- c("Actual","Predicted")
+test2
+roc_value_0.8 <- roc(credit_test[,21], pred_base_df$new)
+roc_value_0.8
+
+## Threshold = 0.9
+pred_base_df = as.data.frame(pred_base)
+pred_base_df$new[pred_base_df['pred_base'] > 0.9] <- 1
+pred_base_df$new[pred_base_df['pred_base'] < 0.9] <- 0
+
+test3 <- as.matrix(table(credit_test[,21],pred_base_df$new))
+names(dimnames(test3)) <- c("Actual","Predicted")
+test3
+roc_value_0.9 <- roc(credit_test[,21], pred_base_df$new)
+roc_value_0.9
+
+```
+# We observe that the cost is minimum, for 0.9 however the misclassifications of "good" as "bad" customers increases as the threshold gets higher. We are minimzing the cost at the risk of more misclassifications of "good" as "bad". 
+
+# Also, the Area Under CUrve (ROC) which represents the highest true positive rate with the lowest false positive rate is best at 0.7.
+
+# A threshold of 0.7 seems ideal since it keeps the misclassifications of "good" as "bad" also low, with a decent cost. This can be decided based on the business requirements.
+
+

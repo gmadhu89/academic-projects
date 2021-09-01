@@ -1,0 +1,175 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+## Using the same crime data set uscrime.txt as in Question 8.2, apply Principal Component Analysis and then create a regression model using the first few principal components.  Specify your new model in terms of the original variables (not the principal components), and compare its quality to that of your solution to Question 8.2.  You can use the R function prcomp for PCA. (Note that to first scale the data, you can include scale. = TRUE to scale as part of the PCA function. Don’t forget that, to make a prediction for the new city, you’ll need to unscale the coefficients (i.e., do the scaling calculation in reverse)!)
+
+## SOLUTION
+
+```{r}
+#Importing the required packages and setting seed
+library(factoextra)
+library(corrplot)
+library(lmvar)
+library(DAAG)
+
+set.seed(1)
+
+# Reading the US Crimes data set
+crime_data <- read.table("uscrime.txt",sep="\t",dec=".",header=TRUE,stringsAsFactors=FALSE)
+
+```
+
+## Inital data exploration and understanding of prcomp results in R
+
+```{r}
+str(crime_data)  
+
+```
+## 47 observations with 16 variables (Crime - Response Variable)
+
+```{r}
+## Let's observe the correlation among the factors since we have a large number of predictor variables(15)
+cor_predictors <- cor(crime_data[,-16])
+corrplot(cor_predictors, method="circle")
+
+
+```
+## Since we have a large number of predictors or factors(15), we observe multi-collinearity among them(since we find correlation among the variables as observed in the plot above).
+## We can apply PCA(Principal Component Analysis in this case to remove collinearity and also reduce insignificant factors)
+
+```{r}
+
+model_pca <- prcomp(crime_data[,-16],scale=TRUE,center=TRUE)
+summary(model_pca)
+str(model_pca)
+
+
+```
+We did not include the Response variable in the PCA model, since we are interested only in the predictors and reducing the collinearity among them.
+
+## We observe that the principal components are showing from 1-15, which is equal to the number of factors in the original dataset. However, the original factors have been transformed linearly in multiple dimensions in such a way that the first few principal components explain a major percentage of the variance in the data.
+
+# Understanding the results from prcomp
+
+```{r}
+
+# Center has the mean of the variables before scaling
+model_pca$center
+
+```
+
+```{r}
+
+#Square of scale contains the variances of each variables before scaling
+model_pca$scale
+```
+```{r}
+#sdev gives the standard deviation of the principal components
+model_pca$sdev
+```
+```{r}
+#Eigen values of the principal components can be found using two ways 
+eig_val <- model_pca$sdev^2
+eig_val
+```
+
+```{r}
+# Function to get Eigen Values
+get_eigenvalue(model_pca)
+```
+```{r}
+## Rotation represents the Eigen vectors(or loadings) of the covariance matrix
+# Displaying forst 10 principal components
+model_pca$rotation[,1:10]
+
+```
+```{r}
+##Gives the new data points of the sample data after rotation in the new dimensions
+## Displaying first few rows
+model_pca$x[1:5,1:5]
+```
+## Scree plot is a plot representation of the percentages of the explained variations of each of the principal components.
+
+# From the below scree plot, we observe that PC1 eplains 40% of the variance in the sample data and PC2 explains 18% of the variance and so on.
+
+```{r}
+fviz_eig(model_pca)
+```
+## Based on the scree plot, we can make a decision on how many Principal components to chose to better explain the model. We can see that after PC6, the components do not contribute to much variation in the sample data. To deicide which principal component to use, let's build a linear regression model for each component until 6 and see which model fits best based on the coefficient of determination.
+
+```{r}
+r2 <- rep(0,6)
+r2_adj <- rep(0,6)
+n <- nrow(crime_data)   ## Number of samples
+
+## Iterating a linear model for upto 6 Principal components and calculating the coefficient of determination and Adjusted-Coefficient of Determination
+for (i in (1:6)) {
+PCA <- model_pca$x[,1:i]
+data_set_new <- cbind(crime_data$Crime,PCA)
+
+model_lm <- lm(V1 ~., data=as.data.frame(data_set_new))
+
+#R^2 is calculated using formula 1 - (SSE)/(SST)
+r2[i] <- 1 - sum((model_lm$residuals)^2)/sum((crime_data$Crime - mean(crime_data$Crime))^2)
+
+# Adjusted R^2 is calculated using formula 1 - ((1-R^2)*(n-1)/(n-k-1)), n=sample size, k=no of factors
+r2_adj[i] <- 1 - (((1-r2[i])*(n-1))/(n-i-1))
+}
+
+data.frame(r2,r2_adj)
+
+```
+## We see that the fit for 5 and 6 components are almost the same. Since we can get a good prediction with minimal factors, let's build our model with PCA=5 and validate its results
+
+```{r}
+PCA <- model_pca$x[,1:5]
+data_set_new <- cbind(crime_data$Crime,PCA)
+model <- lm(V1 ~., data=as.data.frame(data_set_new))
+
+summary(model)
+```
+## We observe that even though PC3 explains 12% of the variance, it is insignificant from the summary of the linear model.
+
+## This model is now calculated based on the linearly transformed principal components. To interpret the results in terms of the original factors, we have to calculate the Implied regression coefficients for each factor.
+
+We know that the implied coefficients can be calculated by:
+aj = sum(bk*Vjk)
+
+Where aj -> Implied jth factor's coefficient
+      bk -> Coefficient of the kth new factor(after PCA)
+      Vjk -> Covariance matrix(i.e Eigen vectors) of the original factors
+      
+```{r}
+#Calculating the intercept and coefficients of the linear regression model built with principal components.
+Intercept <- model$coefficients[1]
+betas <- model$coefficients[2:6]
+
+#Calculating the implied coefficients
+a <- model_pca$rotation[,1:5] %*% betas
+
+a
+
+```
+## These are the coefficients expressed in terms of the original factors.
+The model will look like:
+
+Crime = 905  + 60.79*M + 37.85*So +19.95*Ed + 117.34*Po1 + 111.455*Po2 + 76.25*LF +108.13*M.F + 58.88*Pop + 98.07*NW + 2.87*U1 + 32.35*U2 + 35.93*Wealth + 22.10*Ineq -34.64Prob +27.21*Time
+
+## Predicting the value for the new data point
+
+```{r}
+new_city <- data.frame(M= 14.0, So = 0, Ed = 10.0, Po1 = 12.0, Po2 = 15.5,
+                       LF = 0.640, M.F = 94.0, Pop = 150, NW = 1.1, U1 = 0.120, U2 = 3.6, Wealth = 3200, Ineq = 20.1, Prob = 0.040,Time = 39.0)
+
+#Applying PCA to the new data point
+new_pca <- data.frame(predict(model_pca, new_city))
+#Predicting the outcome with the transformed data points
+result <- predict(model, new_pca)
+
+result
+```
+## In the previous problem, when I calculated the prediction for a new data point, the value was 155. The previous model's coefficient of determination was higher (71%), however that model was clearly overfitting and did not perform well with the new data point. 
+
+## The model after PCA has a good fit and predicts the new data point's crime score as 1389, which seems reasonable looking at the crime scores of the sample data elements.

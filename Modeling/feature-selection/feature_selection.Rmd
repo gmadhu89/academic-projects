@@ -1,0 +1,219 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+### Using the crime data set uscrime.txt from Questions 8.2, 9.1, and 10.1, build a regression model using:
+
+# 1.	Stepwise regression
+# 2.	Lasso
+# 3.	Elastic net
+#For Parts 2 and 3, remember to scale the data first – otherwise, the regression coefficients will be on different scales and the constraint won’t have the desired effect.
+
+# For Parts 2 and 3, use the glmnet function in R
+
+###  SOLUTION
+
+#1 ) Forward, Backward and Stepwise Regression models
+For this, let us try to build 3 models:
+
+a) Forward selection - which starts with no variables and adds one after another until good accuracy is achieved
+b) Backward selection - which starts with all variables and removes one after the other until a good accuracy is achieved.
+c) Stepwise Regression - which does both forward and backward variable selection to build the model.
+
+We can compare and interpret all the models.
+
+```{r}
+#Building a forward selection model:
+
+crime <- read.table("uscrime.txt", stringsAsFactors = FALSE, header = TRUE)
+set.seed(123)
+
+model_forward <- lm (Crime ~ 1. , data=crime)
+step(model_forward,scope=formula(lm(Crime ~.,data=crime)), direction = "forward")
+```
+# As we can observe, the model starts with no factor, and checks adding which factor would give the lowest AIC value. It add PO1 and again checks the other factors, and keeps adding factors based on the best accuracy of AIC.
+
+The final model has 6 factors:
+Po1 + Ineq + Ed + M + Prob + U2
+
+```{r}
+set.seed(123)
+model_backward <- lm (Crime ~ . , data=crime)
+step(model_backward, direction = "backward")
+```
+# As we can observe, this starts with all the factors, and checks that removing So will give a reduced AIC. Next, it builds another model removing So and checks iteratively until the best AIC is achieved. 
+
+The 8 factors used for this model are:
+M + Ed + Po1 + M.F + U1 + U2 + Ineq + Prob
+
+```{r}
+# Creating a Stepwise Regression model
+set.seed(123)
+model_both <- lm(Crime ~., data=crime)
+
+aa <- step(model_both, scope = list(lower= formula(lm(Crime~1, data=crime)),
+                                    upper= formula(lm(Crime~., data=crime))),
+           direction="both")
+
+anova(aa)
+
+```
+## As we observe, this model starts with all factors, and first tries to remove and see which gives the best AIC. It then tries to add a factor back and iteratively tries to keep adding/removing factors to arrive at a best model. 
+
+The 8 factors from this model as as follows:
+M + Ed+ Po1 +M.F +U1 + U2 + Ineq+ Prob
+
+Consolidating the factors used for building each of the model:
+
+Forward Selection :   Po1 + Ineq + Ed + M + Prob + U2
+Backward Selection:   M + Ed + Po1 + M.F + U1 + U2 + Ineq + Prob
+Stepwise Regression:  M + Ed + Po1 +M.F +U1 + U2 + Ineq+ Prob
+
+## It is interesting to observe that both backward selection and stepwise regression give the same number of factors to build the model. Forward selection however builds a model with fewer factors. 
+
+## We should note that since these are iterative procedures, there is always an element of randomness that could cause the variations in the outcome
+
+## We could try to build 2 regression models with these variables and compare the R2 coefficients of the models for further analysis.
+
+```{r}
+
+set.seed(123)
+lm_model_fwdvariables <- lm(Crime ~ Po1 + Ineq + Ed + M + Prob + U2, data=crime)
+
+lm_model_stepvariables <- lm(Crime ~ M + Ed + Po1 + M.F + U1 + U2 + Ineq + Prob, data=crime)
+
+summary(lm_model_fwdvariables)
+summary(lm_model_stepvariables)
+
+```
+## It is interesting to note that thought the Adjusted R2 values are close in both the models, the significance of the factors vary. The stepwise regression model had predicted 2 additional factors M.F and U1, which are not significant after we build the regression model as per it's p-value.
+
+Considering this, we could infer that this iterative variable selection could have more random effects as it proceeds through each iteration.
+
+#2 ) Lasso
+# Here, let us build a Regression model using Lasso.
+
+# First, we use cv.glmnet to perform cross validation on the data set and identify the best value of Lambda for the model. We will then build a regression model using this best value and lambda and compute its accuracy.
+
+```{r}
+library(glmnet)
+set.seed(123)
+
+model_lasso <- cv.glmnet(x=as.matrix(crime[,-16]),
+                         y=as.matrix(crime[,16]),
+                         alpha=1,
+                         nfolds=8,
+                         #nlambda=20,
+                         type.measure="mse",
+                         family="gaussian",
+                         standardize=TRUE)
+
+plot(model_lasso)
+```
+# Identifying the best lambda
+
+```{r}
+
+best_lambda <- model_lasso$lambda.min
+best_lambda
+
+##find the lamba with the smallest cvm (Another way to find the best lambda)
+x = model_lasso$cvm
+model_lasso$lambda[which(x == min(x))]
+
+coefficients(model_lasso, s=model_lasso$lambda.min)
+
+```
+# Using this best lambda, we can train the model.
+
+```{r}
+set.seed(123)
+best_lambda <- model_lasso$lambda.min
+
+# Splitting the data into test and train to get the accuracy of test dataset
+rows_train <- sample(1:nrow(crime),as.integer(0.8*nrow(crime)))
+train_data <- crime[rows_train,]
+test_data <- crime[-rows_train,]
+
+model_lasso_best <- glmnet(x=as.matrix(train_data[,-16]),
+                         y=as.matrix(train_data[,16]),
+                         alpha=1,
+                         lambda = best_lambda,standardize = TRUE
+                         )
+
+coef(model_lasso_best)
+
+```
+# When we apply the best lambda on the train data, we see that 4 factors (Po2, LF, Pop,NW, Wealth) are dropped by Lasso Regression.
+
+```{r}
+# Calculating the model accuracy on test data
+
+predict_crime <- predict(model_lasso_best, s=best_lambda, newx=as.matrix(test_data[,-16]))
+sse <- sum((test_data$Crime - predict_crime)^2)
+mse <- sse/nrow(test_data)
+mse
+```
+##  The Sum of Squared errors (SSE) on test data is 604360.2 and Mean Squared Error is 60436.02
+
+##3)  Elastic-Net Model
+
+Building and elastic net model on this data
+```{r}
+library(glmnet)
+set.seed(123)
+
+# Considering Alpha as 0.5
+
+model_elastic <- cv.glmnet(x=as.matrix(crime[,-16]),
+                         y=as.matrix(crime[,16]),
+                         alpha=0.5,
+                         nfolds=8,
+                         type.measure="mse",
+                         family="gaussian",
+                         standardize=TRUE)
+
+plot(model_elastic)
+```
+```{r}
+
+best_lambda_e <- model_elastic$lambda.min
+best_lambda_e
+
+##find the lamba with the smallest cvm (Another way to find the best lambda)
+x = model_elastic$cvm
+model_elastic$lambda[which(x == min(x))]
+
+coefficients(model_elastic, s=model_elastic$lambda.min)
+```
+## Here we can observe that Elastic-Net combines both Ridge and Lasso's techniques. For the same data set, the elastic regression does not drop out all the factors that the Lasso Regression dropped, but retains them and drops a few.
+# Here Time,Pop are dropped. But the coefficients of NW and Wealth which were dropped by Lasso are much lower in elastic-net model.
+## Interestingly, the coefficient of LF, which was dropped by Lasso has a high value in elastic-net.
+
+# Building a model using best lambda
+
+```{r}
+best_lambda_e <- model_elastic$lambda.min
+
+model_elastic_best <- glmnet(x=as.matrix(train_data[,-16]),
+                         y=as.matrix(train_data[,16]),
+                         alpha=0.5,
+                         lambda = best_lambda_e, standardize=TRUE)
+
+coef(model_elastic_best)
+
+```
+## Calculating the model accuracy on test data
+
+```{r}
+
+# Calculating the model accuracy on test data
+set.seed(123)
+predict_crime_e <- predict(model_elastic_best, s=best_lambda_e, newx=as.matrix(test_data[,-16]))
+sse <- sum((test_data$Crime - predict_crime_e)^2)
+mse <- sse/nrow(test_data)
+mse
+
+```
+# The Elastic-Net model's mean squared error is 62788.95. 

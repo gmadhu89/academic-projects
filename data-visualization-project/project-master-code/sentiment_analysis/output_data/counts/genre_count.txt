@@ -1,0 +1,17 @@
+genre_type	count
+Action	5458647
+Adventure	3258055
+Animation & Modeling	80781
+Casual	725221
+Design & Illustration	80781
+Early Access	331445
+Free to Play	128012
+Indie	3811644
+Massively Multiplayer	966021
+Photo Editing	80781
+RPG	2722322
+Racing	295393
+Simulation	1918350
+Sports	294756
+Strategy	1442070
+Utilities	80781

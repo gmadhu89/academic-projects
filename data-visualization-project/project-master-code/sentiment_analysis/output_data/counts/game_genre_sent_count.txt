@@ -1,0 +1,1273 @@
+appid	game	genre_type	sentiment	count
+70	Half-Life	Action	negative	5476
+70	Half-Life	Action	neutral	5663
+70	Half-Life	Action	positive	17266
+240	Counter-Strike: Source	Action	negative	6660
+240	Counter-Strike: Source	Action	neutral	10988
+240	Counter-Strike: Source	Action	positive	25509
+420	Half-Life 2: Episode Two	Action	negative	2723
+420	Half-Life 2: Episode Two	Action	neutral	2740
+420	Half-Life 2: Episode Two	Action	positive	5990
+620	Portal 2	Action	negative	13786
+620	Portal 2	Action	neutral	20045
+620	Portal 2	Action	positive	73417
+620	Portal 2	Adventure	negative	13786
+620	Portal 2	Adventure	neutral	20045
+620	Portal 2	Adventure	positive	73417
+4000	Garry's Mod	Indie	negative	63344
+4000	Garry's Mod	Indie	neutral	73525
+4000	Garry's Mod	Indie	positive	194193
+4000	Garry's Mod	Simulation	negative	63344
+4000	Garry's Mod	Simulation	neutral	73525
+4000	Garry's Mod	Simulation	positive	194193
+8870	BioShock Infinite	Action	negative	7544
+8870	BioShock Infinite	Action	neutral	6128
+8870	BioShock Infinite	Action	positive	36542
+8930	Sid Meier's Civilization V	Strategy	negative	20471
+8930	Sid Meier's Civilization V	Strategy	neutral	16531
+8930	Sid Meier's Civilization V	Strategy	positive	67088
+32470	STAR WARS™ Empire at War: Gold Pack	Strategy	negative	2342
+32470	STAR WARS™ Empire at War: Gold Pack	Strategy	neutral	2053
+32470	STAR WARS™ Empire at War: Gold Pack	Strategy	positive	10190
+35140	Batman: Arkham Asylum GOTY Edition	Action	negative	2323
+35140	Batman: Arkham Asylum GOTY Edition	Action	neutral	2079
+35140	Batman: Arkham Asylum GOTY Edition	Action	positive	10255
+35140	Batman: Arkham Asylum GOTY Edition	Adventure	negative	2323
+35140	Batman: Arkham Asylum GOTY Edition	Adventure	neutral	2079
+35140	Batman: Arkham Asylum GOTY Edition	Adventure	positive	10255
+39210	FINAL FANTASY XIV Online	Massively Multiplayer	negative	4223
+39210	FINAL FANTASY XIV Online	Massively Multiplayer	neutral	3383
+39210	FINAL FANTASY XIV Online	Massively Multiplayer	positive	15346
+39210	FINAL FANTASY XIV Online	RPG	negative	4223
+39210	FINAL FANTASY XIV Online	RPG	neutral	3383
+39210	FINAL FANTASY XIV Online	RPG	positive	15346
+40800	Super Meat Boy	Indie	negative	4166
+40800	Super Meat Boy	Indie	neutral	2257
+40800	Super Meat Boy	Indie	positive	7976
+47890	The Sims(TM) 3	Simulation	negative	3833
+47890	The Sims(TM) 3	Simulation	neutral	2324
+47890	The Sims(TM) 3	Simulation	positive	8284
+48700	Mount & Blade: Warband	Action	negative	10661
+48700	Mount & Blade: Warband	Action	neutral	9981
+48700	Mount & Blade: Warband	Action	positive	36902
+48700	Mount & Blade: Warband	RPG	negative	10661
+48700	Mount & Blade: Warband	RPG	neutral	9981
+48700	Mount & Blade: Warband	RPG	positive	36902
+55230	Saints Row: The Third	Action	negative	4945
+55230	Saints Row: The Third	Action	neutral	3979
+55230	Saints Row: The Third	Action	positive	14699
+72850	The Elder Scrolls V: Skyrim	RPG	negative	30233
+72850	The Elder Scrolls V: Skyrim	RPG	neutral	29578
+72850	The Elder Scrolls V: Skyrim	RPG	positive	100170
+105600	Terraria	Action	negative	58611
+105600	Terraria	Action	neutral	70854
+105600	Terraria	Action	positive	240160
+105600	Terraria	Adventure	negative	58611
+105600	Terraria	Adventure	neutral	70854
+105600	Terraria	Adventure	positive	240160
+105600	Terraria	Indie	negative	58611
+105600	Terraria	Indie	neutral	70854
+105600	Terraria	Indie	positive	240160
+105600	Terraria	RPG	negative	58611
+105600	Terraria	RPG	neutral	70854
+105600	Terraria	RPG	positive	240160
+107410	Arma 3	Action	negative	18528
+107410	Arma 3	Action	neutral	15702
+107410	Arma 3	Action	positive	55415
+107410	Arma 3	Simulation	negative	18528
+107410	Arma 3	Simulation	neutral	15702
+107410	Arma 3	Simulation	positive	55415
+107410	Arma 3	Strategy	negative	18528
+107410	Arma 3	Strategy	neutral	15702
+107410	Arma 3	Strategy	positive	55415
+113200	The Binding of Isaac	Action	negative	7440
+113200	The Binding of Isaac	Action	neutral	3698
+113200	The Binding of Isaac	Action	positive	15093
+113200	The Binding of Isaac	Adventure	negative	7440
+113200	The Binding of Isaac	Adventure	neutral	3698
+113200	The Binding of Isaac	Adventure	positive	15093
+113200	The Binding of Isaac	Indie	negative	7440
+113200	The Binding of Isaac	Indie	neutral	3698
+113200	The Binding of Isaac	Indie	positive	15093
+113200	The Binding of Isaac	RPG	negative	7440
+113200	The Binding of Isaac	RPG	neutral	3698
+113200	The Binding of Isaac	RPG	positive	15093
+203160	Tomb Raider	Action	negative	7423
+203160	Tomb Raider	Action	neutral	6374
+203160	Tomb Raider	Action	positive	41486
+203160	Tomb Raider	Adventure	negative	7423
+203160	Tomb Raider	Adventure	neutral	6374
+203160	Tomb Raider	Adventure	positive	41486
+204360	Castle Crashers	Action	negative	5960
+204360	Castle Crashers	Action	neutral	4928
+204360	Castle Crashers	Action	positive	20500
+204360	Castle Crashers	Adventure	negative	5960
+204360	Castle Crashers	Adventure	neutral	4928
+204360	Castle Crashers	Adventure	positive	20500
+204360	Castle Crashers	Casual	negative	5960
+204360	Castle Crashers	Casual	neutral	4928
+204360	Castle Crashers	Casual	positive	20500
+204360	Castle Crashers	Indie	negative	5960
+204360	Castle Crashers	Indie	neutral	4928
+204360	Castle Crashers	Indie	positive	20500
+204360	Castle Crashers	RPG	negative	5960
+204360	Castle Crashers	RPG	neutral	4928
+204360	Castle Crashers	RPG	positive	20500
+205100	Dishonored	Action	negative	5066
+205100	Dishonored	Action	neutral	4006
+205100	Dishonored	Action	positive	24471
+205100	Dishonored	Adventure	negative	5066
+205100	Dishonored	Adventure	neutral	4006
+205100	Dishonored	Adventure	positive	24471
+206190	Gunpoint	Action	negative	1332
+206190	Gunpoint	Action	neutral	725
+206190	Gunpoint	Action	positive	7273
+206190	Gunpoint	Indie	negative	1332
+206190	Gunpoint	Indie	neutral	725
+206190	Gunpoint	Indie	positive	7273
+206190	Gunpoint	Strategy	negative	1332
+206190	Gunpoint	Strategy	neutral	725
+206190	Gunpoint	Strategy	positive	7273
+206440	To the Moon	Adventure	negative	3614
+206440	To the Moon	Adventure	neutral	2372
+206440	To the Moon	Adventure	positive	14888
+206440	To the Moon	Indie	negative	3614
+206440	To the Moon	Indie	neutral	2372
+206440	To the Moon	Indie	positive	14888
+206440	To the Moon	RPG	negative	3614
+206440	To the Moon	RPG	neutral	2372
+206440	To the Moon	RPG	positive	14888
+207610	The Walking Dead	Adventure	negative	5555
+207610	The Walking Dead	Adventure	neutral	3333
+207610	The Walking Dead	Adventure	positive	17360
+212680	FTL: Faster Than Light	Indie	negative	10132
+212680	FTL: Faster Than Light	Indie	neutral	4424
+212680	FTL: Faster Than Light	Indie	positive	29079
+212680	FTL: Faster Than Light	Simulation	negative	10132
+212680	FTL: Faster Than Light	Simulation	neutral	4424
+212680	FTL: Faster Than Light	Simulation	positive	29079
+212680	FTL: Faster Than Light	Strategy	negative	10132
+212680	FTL: Faster Than Light	Strategy	neutral	4424
+212680	FTL: Faster Than Light	Strategy	positive	29079
+213670	South Park™: The Stick of Truth™	Action	negative	4653
+213670	South Park™: The Stick of Truth™	Action	neutral	3022
+213670	South Park™: The Stick of Truth™	Action	positive	15527
+213670	South Park™: The Stick of Truth™	Adventure	negative	4653
+213670	South Park™: The Stick of Truth™	Adventure	neutral	3022
+213670	South Park™: The Stick of Truth™	Adventure	positive	15527
+213670	South Park™: The Stick of Truth™	RPG	negative	4653
+213670	South Park™: The Stick of Truth™	RPG	neutral	3022
+213670	South Park™: The Stick of Truth™	RPG	positive	15527
+214560	Mark of the Ninja	Action	negative	1317
+214560	Mark of the Ninja	Action	neutral	828
+214560	Mark of the Ninja	Action	positive	7083
+214560	Mark of the Ninja	Adventure	negative	1317
+214560	Mark of the Ninja	Adventure	neutral	828
+214560	Mark of the Ninja	Adventure	positive	7083
+214560	Mark of the Ninja	Indie	negative	1317
+214560	Mark of the Ninja	Indie	neutral	828
+214560	Mark of the Ninja	Indie	positive	7083
+214950	Total War: ROME II - Emperor Edition	Strategy	negative	7669
+214950	Total War: ROME II - Emperor Edition	Strategy	neutral	4016
+214950	Total War: ROME II - Emperor Edition	Strategy	positive	19309
+218620	PAYDAY 2	Action	negative	41376
+218620	PAYDAY 2	Action	neutral	38869
+218620	PAYDAY 2	Action	positive	106541
+218620	PAYDAY 2	RPG	negative	41376
+218620	PAYDAY 2	RPG	neutral	38869
+218620	PAYDAY 2	RPG	positive	106541
+219150	Hotline Miami	Action	negative	7674
+219150	Hotline Miami	Action	neutral	5108
+219150	Hotline Miami	Action	positive	18355
+219150	Hotline Miami	Indie	negative	7674
+219150	Hotline Miami	Indie	neutral	5108
+219150	Hotline Miami	Indie	positive	18355
+219740	Don't Starve	Adventure	negative	7607
+219740	Don't Starve	Adventure	neutral	4812
+219740	Don't Starve	Adventure	positive	21493
+219740	Don't Starve	Indie	negative	7607
+219740	Don't Starve	Indie	neutral	4812
+219740	Don't Starve	Indie	positive	21493
+219740	Don't Starve	Simulation	negative	7607
+219740	Don't Starve	Simulation	neutral	4812
+219740	Don't Starve	Simulation	positive	21493
+221380	Age of Empires II (2013)	Strategy	negative	6306
+221380	Age of Empires II (2013)	Strategy	neutral	5945
+221380	Age of Empires II (2013)	Strategy	positive	25919
+221640	Super Hexagon	Action	negative	4900
+221640	Super Hexagon	Action	neutral	2297
+221640	Super Hexagon	Action	positive	7658
+221640	Super Hexagon	Indie	negative	4900
+221640	Super Hexagon	Indie	neutral	2297
+221640	Super Hexagon	Indie	positive	7658
+225540	Just Cause 3	Action	negative	10359
+225540	Just Cause 3	Action	neutral	5614
+225540	Just Cause 3	Action	positive	20819
+225540	Just Cause 3	Adventure	negative	10359
+225540	Just Cause 3	Adventure	neutral	5614
+225540	Just Cause 3	Adventure	positive	20819
+227300	Euro Truck Simulator 2	Indie	negative	12029
+227300	Euro Truck Simulator 2	Indie	neutral	15573
+227300	Euro Truck Simulator 2	Indie	positive	53985
+227300	Euro Truck Simulator 2	Simulation	negative	12029
+227300	Euro Truck Simulator 2	Simulation	neutral	15573
+227300	Euro Truck Simulator 2	Simulation	positive	53985
+233860	Kenshi	Action	negative	6185
+233860	Kenshi	Action	neutral	3096
+233860	Kenshi	Action	positive	13925
+233860	Kenshi	Indie	negative	6185
+233860	Kenshi	Indie	neutral	3096
+233860	Kenshi	Indie	positive	13925
+233860	Kenshi	RPG	negative	6185
+233860	Kenshi	RPG	neutral	3096
+233860	Kenshi	RPG	positive	13925
+233860	Kenshi	Simulation	negative	6185
+233860	Kenshi	Simulation	neutral	3096
+233860	Kenshi	Simulation	positive	13925
+233860	Kenshi	Strategy	negative	6185
+233860	Kenshi	Strategy	neutral	3096
+233860	Kenshi	Strategy	positive	13925
+236850	Europa Universalis IV	Simulation	negative	11602
+236850	Europa Universalis IV	Simulation	neutral	7506
+236850	Europa Universalis IV	Simulation	positive	26403
+236850	Europa Universalis IV	Strategy	negative	11602
+236850	Europa Universalis IV	Strategy	neutral	7506
+236850	Europa Universalis IV	Strategy	positive	26403
+238320	Outlast	Action	negative	8241
+238320	Outlast	Action	neutral	3761
+238320	Outlast	Action	positive	10980
+238320	Outlast	Adventure	negative	8241
+238320	Outlast	Adventure	neutral	3761
+238320	Outlast	Adventure	positive	10980
+238320	Outlast	Indie	negative	8241
+238320	Outlast	Indie	neutral	3761
+238320	Outlast	Indie	positive	10980
+238460	BattleBlock Theater	Action	negative	4710
+238460	BattleBlock Theater	Action	neutral	4018
+238460	BattleBlock Theater	Action	positive	15947
+238460	BattleBlock Theater	Adventure	negative	4710
+238460	BattleBlock Theater	Adventure	neutral	4018
+238460	BattleBlock Theater	Adventure	positive	15947
+238460	BattleBlock Theater	Casual	negative	4710
+238460	BattleBlock Theater	Casual	neutral	4018
+238460	BattleBlock Theater	Casual	positive	15947
+238460	BattleBlock Theater	Indie	negative	4710
+238460	BattleBlock Theater	Indie	neutral	4018
+238460	BattleBlock Theater	Indie	positive	15947
+239030	"Papers, Please"	Adventure	negative	5475
+239030	"Papers, Please"	Adventure	neutral	4502
+239030	"Papers, Please"	Adventure	positive	14058
+239030	"Papers, Please"	Indie	negative	5475
+239030	"Papers, Please"	Indie	neutral	4502
+239030	"Papers, Please"	Indie	positive	14058
+239140	Dying Light	Action	negative	10934
+239140	Dying Light	Action	neutral	9053
+239140	Dying Light	Action	positive	42104
+239140	Dying Light	RPG	negative	10934
+239140	Dying Light	RPG	neutral	9053
+239140	Dying Light	RPG	positive	42104
+240720	Getting Over It with Bennett Foddy	Action	negative	6991
+240720	Getting Over It with Bennett Foddy	Action	neutral	3482
+240720	Getting Over It with Bennett Foddy	Action	positive	6003
+242760	The Forest	Action	negative	20711
+242760	The Forest	Action	neutral	15860
+242760	The Forest	Action	positive	56961
+242760	The Forest	Adventure	negative	20711
+242760	The Forest	Adventure	neutral	15860
+242760	The Forest	Adventure	positive	56961
+242760	The Forest	Indie	negative	20711
+242760	The Forest	Indie	neutral	15860
+242760	The Forest	Indie	positive	56961
+242760	The Forest	Simulation	negative	20711
+242760	The Forest	Simulation	neutral	15860
+242760	The Forest	Simulation	positive	56961
+242920	Banished	Indie	negative	6013
+242920	Banished	Indie	neutral	1808
+242920	Banished	Indie	positive	15720
+242920	Banished	Simulation	negative	6013
+242920	Banished	Simulation	neutral	1808
+242920	Banished	Simulation	positive	15720
+242920	Banished	Strategy	negative	6013
+242920	Banished	Strategy	neutral	1808
+242920	Banished	Strategy	positive	15720
+250320	The Wolf Among Us	Action	negative	2134
+250320	The Wolf Among Us	Action	neutral	1455
+250320	The Wolf Among Us	Action	positive	11642
+250320	The Wolf Among Us	Adventure	negative	2134
+250320	The Wolf Among Us	Adventure	neutral	1455
+250320	The Wolf Among Us	Adventure	positive	11642
+250320	The Wolf Among Us	Casual	negative	2134
+250320	The Wolf Among Us	Casual	neutral	1455
+250320	The Wolf Among Us	Casual	positive	11642
+250900	The Binding of Isaac: Rebirth	Action	negative	11946
+250900	The Binding of Isaac: Rebirth	Action	neutral	10256
+250900	The Binding of Isaac: Rebirth	Action	positive	35461
+252490	Rust	Action	negative	75337
+252490	Rust	Action	neutral	57857
+252490	Rust	Action	positive	150172
+252490	Rust	Adventure	negative	75337
+252490	Rust	Adventure	neutral	57857
+252490	Rust	Adventure	positive	150172
+252490	Rust	Indie	negative	75337
+252490	Rust	Indie	neutral	57857
+252490	Rust	Indie	positive	150172
+252490	Rust	Massively Multiplayer	negative	75337
+252490	Rust	Massively Multiplayer	neutral	57857
+252490	Rust	Massively Multiplayer	positive	150172
+252490	Rust	RPG	negative	75337
+252490	Rust	RPG	neutral	57857
+252490	Rust	RPG	positive	150172
+252950	Rocket League	Action	negative	52394
+252950	Rocket League	Action	neutral	51318
+252950	Rocket League	Action	positive	144613
+252950	Rocket League	Indie	negative	52394
+252950	Rocket League	Indie	neutral	51318
+252950	Rocket League	Indie	positive	144613
+252950	Rocket League	Racing	negative	52394
+252950	Rocket League	Racing	neutral	51318
+252950	Rocket League	Racing	positive	144613
+252950	Rocket League	Sports	negative	52394
+252950	Rocket League	Sports	neutral	51318
+252950	Rocket League	Sports	positive	144613
+255710	Cities: Skylines	Simulation	negative	13118
+255710	Cities: Skylines	Simulation	neutral	9632
+255710	Cities: Skylines	Simulation	positive	47128
+255710	Cities: Skylines	Strategy	negative	13118
+255710	Cities: Skylines	Strategy	neutral	9632
+255710	Cities: Skylines	Strategy	positive	47128
+262060	Darkest Dungeon®	Indie	negative	12268
+262060	Darkest Dungeon®	Indie	neutral	4610
+262060	Darkest Dungeon®	Indie	positive	23603
+262060	Darkest Dungeon®	RPG	negative	12268
+262060	Darkest Dungeon®	RPG	neutral	4610
+262060	Darkest Dungeon®	RPG	positive	23603
+262060	Darkest Dungeon®	Strategy	negative	12268
+262060	Darkest Dungeon®	Strategy	neutral	4610
+262060	Darkest Dungeon®	Strategy	positive	23603
+264200	One Finger Death Punch	Action	negative	2438
+264200	One Finger Death Punch	Action	neutral	1257
+264200	One Finger Death Punch	Action	positive	7328
+264200	One Finger Death Punch	Casual	negative	2438
+264200	One Finger Death Punch	Casual	neutral	1257
+264200	One Finger Death Punch	Casual	positive	7328
+264200	One Finger Death Punch	Indie	negative	2438
+264200	One Finger Death Punch	Indie	neutral	1257
+264200	One Finger Death Punch	Indie	positive	7328
+264710	Subnautica	Adventure	negative	18229
+264710	Subnautica	Adventure	neutral	9515
+264710	Subnautica	Adventure	positive	64591
+264710	Subnautica	Indie	negative	18229
+264710	Subnautica	Indie	neutral	9515
+264710	Subnautica	Indie	positive	64591
+268500	XCOM 2	Strategy	negative	9148
+268500	XCOM 2	Strategy	neutral	3770
+268500	XCOM 2	Strategy	positive	23557
+268910	Cuphead	Action	negative	7758
+268910	Cuphead	Action	neutral	5085
+268910	Cuphead	Action	positive	20004
+268910	Cuphead	Indie	negative	7758
+268910	Cuphead	Indie	neutral	5085
+268910	Cuphead	Indie	positive	20004
+270880	American Truck Simulator	Indie	negative	5232
+270880	American Truck Simulator	Indie	neutral	4733
+270880	American Truck Simulator	Indie	positive	25240
+270880	American Truck Simulator	Simulation	negative	5232
+270880	American Truck Simulator	Simulation	neutral	4733
+270880	American Truck Simulator	Simulation	positive	25240
+271590	Grand Theft Auto V	Action	negative	73857
+271590	Grand Theft Auto V	Action	neutral	78395
+271590	Grand Theft Auto V	Action	positive	166847
+271590	Grand Theft Auto V	Adventure	negative	73857
+271590	Grand Theft Auto V	Adventure	neutral	78395
+271590	Grand Theft Auto V	Adventure	positive	166847
+274190	Broforce	Action	negative	4296
+274190	Broforce	Action	neutral	3891
+274190	Broforce	Action	positive	11393
+274190	Broforce	Adventure	negative	4296
+274190	Broforce	Adventure	neutral	3891
+274190	Broforce	Adventure	positive	11393
+274190	Broforce	Casual	negative	4296
+274190	Broforce	Casual	neutral	3891
+274190	Broforce	Casual	positive	11393
+274190	Broforce	Indie	negative	4296
+274190	Broforce	Indie	neutral	3891
+274190	Broforce	Indie	positive	11393
+275390	Guacamelee! Super Turbo Championship Edition	Action	negative	357
+275390	Guacamelee! Super Turbo Championship Edition	Action	neutral	228
+275390	Guacamelee! Super Turbo Championship Edition	Action	positive	1614
+275390	Guacamelee! Super Turbo Championship Edition	Adventure	negative	357
+275390	Guacamelee! Super Turbo Championship Edition	Adventure	neutral	228
+275390	Guacamelee! Super Turbo Championship Edition	Adventure	positive	1614
+275390	Guacamelee! Super Turbo Championship Edition	Indie	negative	357
+275390	Guacamelee! Super Turbo Championship Edition	Indie	neutral	228
+275390	Guacamelee! Super Turbo Championship Edition	Indie	positive	1614
+275850	No Man's Sky	Action	negative	43247
+275850	No Man's Sky	Action	neutral	11462
+275850	No Man's Sky	Action	positive	61398
+275850	No Man's Sky	Adventure	negative	43247
+275850	No Man's Sky	Adventure	neutral	11462
+275850	No Man's Sky	Adventure	positive	61398
+281990	Stellaris	Simulation	negative	13205
+281990	Stellaris	Simulation	neutral	6513
+281990	Stellaris	Simulation	positive	34404
+281990	Stellaris	Strategy	negative	13205
+281990	Stellaris	Strategy	neutral	6513
+281990	Stellaris	Strategy	positive	34404
+284160	BeamNG.drive	Early Access	negative	5475
+284160	BeamNG.drive	Early Access	neutral	7058
+284160	BeamNG.drive	Early Access	positive	24274
+284160	BeamNG.drive	Racing	negative	5475
+284160	BeamNG.drive	Racing	neutral	7058
+284160	BeamNG.drive	Racing	positive	24274
+284160	BeamNG.drive	Simulation	negative	5475
+284160	BeamNG.drive	Simulation	neutral	7058
+284160	BeamNG.drive	Simulation	positive	24274
+285190	"Warhammer 40,000: Dawn of War III"	Action	negative	3962
+285190	"Warhammer 40,000: Dawn of War III"	Action	neutral	708
+285190	"Warhammer 40,000: Dawn of War III"	Action	positive	5059
+285190	"Warhammer 40,000: Dawn of War III"	Simulation	negative	3962
+285190	"Warhammer 40,000: Dawn of War III"	Simulation	neutral	708
+285190	"Warhammer 40,000: Dawn of War III"	Simulation	positive	5059
+285190	"Warhammer 40,000: Dawn of War III"	Strategy	negative	3962
+285190	"Warhammer 40,000: Dawn of War III"	Strategy	neutral	708
+285190	"Warhammer 40,000: Dawn of War III"	Strategy	positive	5059
+286160	Tabletop Simulator	Casual	negative	4443
+286160	Tabletop Simulator	Casual	neutral	4533
+286160	Tabletop Simulator	Casual	positive	17496
+286160	Tabletop Simulator	Indie	negative	4443
+286160	Tabletop Simulator	Indie	neutral	4533
+286160	Tabletop Simulator	Indie	positive	17496
+286160	Tabletop Simulator	RPG	negative	4443
+286160	Tabletop Simulator	RPG	neutral	4533
+286160	Tabletop Simulator	RPG	positive	17496
+286160	Tabletop Simulator	Simulation	negative	4443
+286160	Tabletop Simulator	Simulation	neutral	4533
+286160	Tabletop Simulator	Simulation	positive	17496
+286160	Tabletop Simulator	Strategy	negative	4443
+286160	Tabletop Simulator	Strategy	neutral	4533
+286160	Tabletop Simulator	Strategy	positive	17496
+289070	Sid Meier's Civilization VI	Strategy	negative	15891
+289070	Sid Meier's Civilization VI	Strategy	neutral	9250
+289070	Sid Meier's Civilization VI	Strategy	positive	42678
+292030	The Witcher 3: Wild Hunt	RPG	negative	20888
+292030	The Witcher 3: Wild Hunt	RPG	neutral	24404
+292030	The Witcher 3: Wild Hunt	RPG	positive	105931
+294100	RimWorld	Indie	negative	13648
+294100	RimWorld	Indie	neutral	7938
+294100	RimWorld	Indie	positive	37877
+294100	RimWorld	Simulation	negative	13648
+294100	RimWorld	Simulation	neutral	7938
+294100	RimWorld	Simulation	positive	37877
+294100	RimWorld	Strategy	negative	13648
+294100	RimWorld	Strategy	neutral	7938
+294100	RimWorld	Strategy	positive	37877
+304390	For Honor	Action	negative	13816
+304390	For Honor	Action	neutral	6633
+304390	For Honor	Action	positive	20359
+306130	The Elder Scrolls Online	Massively Multiplayer	negative	11614
+306130	The Elder Scrolls Online	Massively Multiplayer	neutral	6542
+306130	The Elder Scrolls Online	Massively Multiplayer	positive	30985
+306130	The Elder Scrolls Online	RPG	negative	11614
+306130	The Elder Scrolls Online	RPG	neutral	6542
+306130	The Elder Scrolls Online	RPG	positive	30985
+311690	Enter the Gungeon	Action	negative	5459
+311690	Enter the Gungeon	Action	neutral	4885
+311690	Enter the Gungeon	Action	positive	17235
+311690	Enter the Gungeon	Adventure	negative	5459
+311690	Enter the Gungeon	Adventure	neutral	4885
+311690	Enter the Gungeon	Adventure	positive	17235
+311690	Enter the Gungeon	Indie	negative	5459
+311690	Enter the Gungeon	Indie	neutral	4885
+311690	Enter the Gungeon	Indie	positive	17235
+312530	Duck Game	Action	negative	2855
+312530	Duck Game	Action	neutral	3647
+312530	Duck Game	Action	positive	6678
+312530	Duck Game	Indie	negative	2855
+312530	Duck Game	Indie	neutral	3647
+312530	Duck Game	Indie	positive	6678
+312660	Sniper Elite 4	Action	negative	1653
+312660	Sniper Elite 4	Action	neutral	1217
+312660	Sniper Elite 4	Action	positive	6041
+312660	Sniper Elite 4	Adventure	negative	1653
+312660	Sniper Elite 4	Adventure	neutral	1217
+312660	Sniper Elite 4	Adventure	positive	6041
+322330	Don't Starve Together	Adventure	negative	13472
+322330	Don't Starve Together	Adventure	neutral	12875
+322330	Don't Starve Together	Adventure	positive	43548
+322330	Don't Starve Together	Indie	negative	13472
+322330	Don't Starve Together	Indie	neutral	12875
+322330	Don't Starve Together	Indie	positive	43548
+322330	Don't Starve Together	Simulation	negative	13472
+322330	Don't Starve Together	Simulation	neutral	12875
+322330	Don't Starve Together	Simulation	positive	43548
+323190	Frostpunk	Simulation	negative	5126
+323190	Frostpunk	Simulation	neutral	1946
+323190	Frostpunk	Simulation	positive	15350
+323190	Frostpunk	Strategy	negative	5126
+323190	Frostpunk	Strategy	neutral	1946
+323190	Frostpunk	Strategy	positive	15350
+339800	HuniePop	Indie	negative	4529
+339800	HuniePop	Indie	neutral	4938
+339800	HuniePop	Indie	positive	10642
+339800	HuniePop	RPG	negative	4529
+339800	HuniePop	RPG	neutral	4938
+339800	HuniePop	RPG	positive	10642
+339800	HuniePop	Simulation	negative	4529
+339800	HuniePop	Simulation	neutral	4938
+339800	HuniePop	Simulation	positive	10642
+339800	HuniePop	Strategy	negative	4529
+339800	HuniePop	Strategy	neutral	4938
+339800	HuniePop	Strategy	positive	10642
+341800	Keep Talking and Nobody Explodes	Indie	negative	1225
+341800	Keep Talking and Nobody Explodes	Indie	neutral	706
+341800	Keep Talking and Nobody Explodes	Indie	positive	4009
+346110	ARK: Survival Evolved	Action	negative	55423
+346110	ARK: Survival Evolved	Action	neutral	27830
+346110	ARK: Survival Evolved	Action	positive	101044
+346110	ARK: Survival Evolved	Adventure	negative	55423
+346110	ARK: Survival Evolved	Adventure	neutral	27830
+346110	ARK: Survival Evolved	Adventure	positive	101044
+346110	ARK: Survival Evolved	Indie	negative	55423
+346110	ARK: Survival Evolved	Indie	neutral	27830
+346110	ARK: Survival Evolved	Indie	positive	101044
+346110	ARK: Survival Evolved	Massively Multiplayer	negative	55423
+346110	ARK: Survival Evolved	Massively Multiplayer	neutral	27830
+346110	ARK: Survival Evolved	Massively Multiplayer	positive	101044
+346110	ARK: Survival Evolved	RPG	negative	55423
+346110	ARK: Survival Evolved	RPG	neutral	27830
+346110	ARK: Survival Evolved	RPG	positive	101044
+356190	Middle-earth™: Shadow of War™	Action	negative	4930
+356190	Middle-earth™: Shadow of War™	Action	neutral	2634
+356190	Middle-earth™: Shadow of War™	Action	positive	15226
+356190	Middle-earth™: Shadow of War™	Adventure	negative	4930
+356190	Middle-earth™: Shadow of War™	Adventure	neutral	2634
+356190	Middle-earth™: Shadow of War™	Adventure	positive	15226
+356190	Middle-earth™: Shadow of War™	RPG	negative	4930
+356190	Middle-earth™: Shadow of War™	RPG	neutral	2634
+356190	Middle-earth™: Shadow of War™	RPG	positive	15226
+359550	Tom Clancy's Rainbow Six Siege	Action	negative	76096
+359550	Tom Clancy's Rainbow Six Siege	Action	neutral	88976
+359550	Tom Clancy's Rainbow Six Siege	Action	positive	205230
+362890	Black Mesa	Action	negative	4129
+362890	Black Mesa	Action	neutral	3537
+362890	Black Mesa	Action	positive	25142
+362890	Black Mesa	Adventure	negative	4129
+362890	Black Mesa	Adventure	neutral	3537
+362890	Black Mesa	Adventure	positive	25142
+362890	Black Mesa	Indie	negative	4129
+362890	Black Mesa	Indie	neutral	3537
+362890	Black Mesa	Indie	positive	25142
+364360	Total War: WARHAMMER	Action	negative	5811
+364360	Total War: WARHAMMER	Action	neutral	2543
+364360	Total War: WARHAMMER	Action	positive	16896
+364360	Total War: WARHAMMER	Strategy	negative	5811
+364360	Total War: WARHAMMER	Strategy	neutral	2543
+364360	Total War: WARHAMMER	Strategy	positive	16896
+367520	Hollow Knight	Action	negative	8261
+367520	Hollow Knight	Action	neutral	6674
+367520	Hollow Knight	Action	positive	39762
+367520	Hollow Knight	Adventure	negative	8261
+367520	Hollow Knight	Adventure	neutral	6674
+367520	Hollow Knight	Adventure	positive	39762
+367520	Hollow Knight	Indie	negative	8261
+367520	Hollow Knight	Indie	neutral	6674
+367520	Hollow Knight	Indie	positive	39762
+374320	DARK SOULS™ III	Action	negative	22085
+374320	DARK SOULS™ III	Action	neutral	19012
+374320	DARK SOULS™ III	Action	positive	47661
+377160	Fallout 4	RPG	negative	34878
+377160	Fallout 4	RPG	neutral	21737
+377160	Fallout 4	RPG	positive	82252
+379430	Kingdom Come: Deliverance	Action	negative	9154
+379430	Kingdom Come: Deliverance	Action	neutral	3093
+379430	Kingdom Come: Deliverance	Action	positive	23376
+379430	Kingdom Come: Deliverance	Adventure	negative	9154
+379430	Kingdom Come: Deliverance	Adventure	neutral	3093
+379430	Kingdom Come: Deliverance	Adventure	positive	23376
+379430	Kingdom Come: Deliverance	RPG	negative	9154
+379430	Kingdom Come: Deliverance	RPG	neutral	3093
+379430	Kingdom Come: Deliverance	RPG	positive	23376
+379720	DOOM	Action	negative	14476
+379720	DOOM	Action	neutral	15593
+379720	DOOM	Action	positive	50875
+381210	Dead by Daylight	Action	negative	43696
+381210	Dead by Daylight	Action	neutral	24216
+381210	Dead by Daylight	Action	positive	75861
+391220	Rise of the Tomb Raider	Action	negative	3353
+391220	Rise of the Tomb Raider	Action	neutral	2492
+391220	Rise of the Tomb Raider	Action	positive	18831
+391220	Rise of the Tomb Raider	Adventure	negative	3353
+391220	Rise of the Tomb Raider	Adventure	neutral	2492
+391220	Rise of the Tomb Raider	Adventure	positive	18831
+391540	Undertale	Indie	negative	18737
+391540	Undertale	Indie	neutral	15369
+391540	Undertale	Indie	positive	59531
+391540	Undertale	RPG	negative	18737
+391540	Undertale	RPG	neutral	15369
+391540	Undertale	RPG	positive	59531
+394360	Hearts of Iron IV	Simulation	negative	13581
+394360	Hearts of Iron IV	Simulation	neutral	11718
+394360	Hearts of Iron IV	Simulation	positive	35567
+394360	Hearts of Iron IV	Strategy	negative	13581
+394360	Hearts of Iron IV	Strategy	neutral	11718
+394360	Hearts of Iron IV	Strategy	positive	35567
+397540	Borderlands 3	Action	negative	5987
+397540	Borderlands 3	Action	neutral	4820
+397540	Borderlands 3	Action	positive	19329
+397540	Borderlands 3	RPG	negative	5987
+397540	Borderlands 3	RPG	neutral	4820
+397540	Borderlands 3	RPG	positive	19329
+413150	Stardew Valley	Indie	negative	28599
+413150	Stardew Valley	Indie	neutral	24858
+413150	Stardew Valley	Indie	positive	118893
+413150	Stardew Valley	RPG	negative	28599
+413150	Stardew Valley	RPG	neutral	24858
+413150	Stardew Valley	RPG	positive	118893
+413150	Stardew Valley	Simulation	negative	28599
+413150	Stardew Valley	Simulation	neutral	24858
+413150	Stardew Valley	Simulation	positive	118893
+418370	Resident Evil 7 Biohazard	Action	negative	4588
+418370	Resident Evil 7 Biohazard	Action	neutral	1588
+418370	Resident Evil 7 Biohazard	Action	positive	7650
+418370	Resident Evil 7 Biohazard	Adventure	negative	4588
+418370	Resident Evil 7 Biohazard	Adventure	neutral	1588
+418370	Resident Evil 7 Biohazard	Adventure	positive	7650
+424840	Little Nightmares	Adventure	negative	2163
+424840	Little Nightmares	Adventure	neutral	879
+424840	Little Nightmares	Adventure	positive	5844
+427520	Factorio	Casual	negative	14820
+427520	Factorio	Casual	neutral	11856
+427520	Factorio	Casual	positive	41698
+427520	Factorio	Indie	negative	14820
+427520	Factorio	Indie	neutral	11856
+427520	Factorio	Indie	positive	41698
+427520	Factorio	Simulation	negative	14820
+427520	Factorio	Simulation	neutral	11856
+427520	Factorio	Simulation	positive	41698
+427520	Factorio	Strategy	negative	14820
+427520	Factorio	Strategy	neutral	11856
+427520	Factorio	Strategy	positive	41698
+431960	Wallpaper Engine	Animation & Modeling	negative	3180
+431960	Wallpaper Engine	Animation & Modeling	neutral	22492
+431960	Wallpaper Engine	Animation & Modeling	positive	55109
+431960	Wallpaper Engine	Casual	negative	3180
+431960	Wallpaper Engine	Casual	neutral	22492
+431960	Wallpaper Engine	Casual	positive	55109
+431960	Wallpaper Engine	Design & Illustration	negative	3180
+431960	Wallpaper Engine	Design & Illustration	neutral	22492
+431960	Wallpaper Engine	Design & Illustration	positive	55109
+431960	Wallpaper Engine	Indie	negative	3180
+431960	Wallpaper Engine	Indie	neutral	22492
+431960	Wallpaper Engine	Indie	positive	55109
+431960	Wallpaper Engine	Photo Editing	negative	3180
+431960	Wallpaper Engine	Photo Editing	neutral	22492
+431960	Wallpaper Engine	Photo Editing	positive	55109
+431960	Wallpaper Engine	Utilities	negative	3180
+431960	Wallpaper Engine	Utilities	neutral	22492
+431960	Wallpaper Engine	Utilities	positive	55109
+433340	Slime Rancher	Action	negative	5184
+433340	Slime Rancher	Action	neutral	4551
+433340	Slime Rancher	Action	positive	24755
+433340	Slime Rancher	Adventure	negative	5184
+433340	Slime Rancher	Adventure	neutral	4551
+433340	Slime Rancher	Adventure	positive	24755
+433340	Slime Rancher	Indie	negative	5184
+433340	Slime Rancher	Indie	neutral	4551
+433340	Slime Rancher	Indie	positive	24755
+433340	Slime Rancher	Simulation	negative	5184
+433340	Slime Rancher	Simulation	neutral	4551
+433340	Slime Rancher	Simulation	positive	24755
+435150	Divinity: Original Sin 2	Adventure	negative	8332
+435150	Divinity: Original Sin 2	Adventure	neutral	7015
+435150	Divinity: Original Sin 2	Adventure	positive	42798
+435150	Divinity: Original Sin 2	RPG	negative	8332
+435150	Divinity: Original Sin 2	RPG	neutral	7015
+435150	Divinity: Original Sin 2	RPG	positive	42798
+435150	Divinity: Original Sin 2	Strategy	negative	8332
+435150	Divinity: Original Sin 2	Strategy	neutral	7015
+435150	Divinity: Original Sin 2	Strategy	positive	42798
+440900	Conan Exiles	Action	negative	8431
+440900	Conan Exiles	Action	neutral	3064
+440900	Conan Exiles	Action	positive	20604
+440900	Conan Exiles	Adventure	negative	8431
+440900	Conan Exiles	Adventure	neutral	3064
+440900	Conan Exiles	Adventure	positive	20604
+440900	Conan Exiles	Massively Multiplayer	negative	8431
+440900	Conan Exiles	Massively Multiplayer	neutral	3064
+440900	Conan Exiles	Massively Multiplayer	positive	20604
+440900	Conan Exiles	RPG	negative	8431
+440900	Conan Exiles	RPG	neutral	3064
+440900	Conan Exiles	RPG	positive	20604
+440900	Conan Exiles	Simulation	negative	8431
+440900	Conan Exiles	Simulation	neutral	3064
+440900	Conan Exiles	Simulation	positive	20604
+440900	Conan Exiles	Strategy	negative	8431
+440900	Conan Exiles	Strategy	neutral	3064
+440900	Conan Exiles	Strategy	positive	20604
+447040	Watch_Dogs 2	Action	negative	3194
+447040	Watch_Dogs 2	Action	neutral	2237
+447040	Watch_Dogs 2	Action	positive	8891
+447040	Watch_Dogs 2	Adventure	negative	3194
+447040	Watch_Dogs 2	Adventure	neutral	2237
+447040	Watch_Dogs 2	Adventure	positive	8891
+447820	Day of Infamy	Action	negative	2387
+447820	Day of Infamy	Action	neutral	1410
+447820	Day of Infamy	Action	positive	7283
+447820	Day of Infamy	Indie	negative	2387
+447820	Day of Infamy	Indie	neutral	1410
+447820	Day of Infamy	Indie	positive	7283
+447820	Day of Infamy	Strategy	negative	2387
+447820	Day of Infamy	Strategy	neutral	1410
+447820	Day of Infamy	Strategy	positive	7283
+457140	Oxygen Not Included	Indie	negative	5628
+457140	Oxygen Not Included	Indie	neutral	2873
+457140	Oxygen Not Included	Indie	positive	15787
+457140	Oxygen Not Included	Simulation	negative	5628
+457140	Oxygen Not Included	Simulation	neutral	2873
+457140	Oxygen Not Included	Simulation	positive	15787
+460930	Tom Clancy's Ghost Recon® Wildlands	Action	negative	5350
+460930	Tom Clancy's Ghost Recon® Wildlands	Action	neutral	2318
+460930	Tom Clancy's Ghost Recon® Wildlands	Action	positive	11554
+460930	Tom Clancy's Ghost Recon® Wildlands	Adventure	negative	5350
+460930	Tom Clancy's Ghost Recon® Wildlands	Adventure	neutral	2318
+460930	Tom Clancy's Ghost Recon® Wildlands	Adventure	positive	11554
+464920	Surviving Mars	Simulation	negative	2145
+464920	Surviving Mars	Simulation	neutral	690
+464920	Surviving Mars	Simulation	positive	5381
+464920	Surviving Mars	Strategy	negative	2145
+464920	Surviving Mars	Strategy	neutral	690
+464920	Surviving Mars	Strategy	positive	5381
+466560	Northgard	Indie	negative	2913
+466560	Northgard	Indie	neutral	1245
+466560	Northgard	Indie	positive	10633
+466560	Northgard	Simulation	negative	2913
+466560	Northgard	Simulation	neutral	1245
+466560	Northgard	Simulation	positive	10633
+466560	Northgard	Strategy	negative	2913
+466560	Northgard	Strategy	neutral	1245
+466560	Northgard	Strategy	positive	10633
+476600	Call of Duty: WWII	Action	negative	4568
+476600	Call of Duty: WWII	Action	neutral	1399
+476600	Call of Duty: WWII	Action	positive	7352
+477160	Human: Fall Flat	Adventure	negative	4746
+477160	Human: Fall Flat	Adventure	neutral	4547
+477160	Human: Fall Flat	Adventure	positive	15349
+477160	Human: Fall Flat	Indie	negative	4746
+477160	Human: Fall Flat	Indie	neutral	4547
+477160	Human: Fall Flat	Indie	positive	15349
+485510	Nioh: Complete Edition	Action	negative	2120
+485510	Nioh: Complete Edition	Action	neutral	801
+485510	Nioh: Complete Edition	Action	positive	4321
+485510	Nioh: Complete Edition	RPG	negative	2120
+485510	Nioh: Complete Edition	RPG	neutral	801
+485510	Nioh: Complete Edition	RPG	positive	4321
+489830	The Elder Scrolls V: Skyrim Special Edition	RPG	negative	13870
+489830	The Elder Scrolls V: Skyrim Special Edition	RPG	neutral	17312
+489830	The Elder Scrolls V: Skyrim Special Edition	RPG	positive	53218
+493340	Planet Coaster	Action	negative	3973
+493340	Planet Coaster	Action	neutral	2547
+493340	Planet Coaster	Action	positive	16042
+493340	Planet Coaster	Adventure	negative	3973
+493340	Planet Coaster	Adventure	neutral	2547
+493340	Planet Coaster	Adventure	positive	16042
+493340	Planet Coaster	Casual	negative	3973
+493340	Planet Coaster	Casual	neutral	2547
+493340	Planet Coaster	Casual	positive	16042
+493340	Planet Coaster	Simulation	negative	3973
+493340	Planet Coaster	Simulation	neutral	2547
+493340	Planet Coaster	Simulation	positive	16042
+493340	Planet Coaster	Strategy	negative	3973
+493340	Planet Coaster	Strategy	neutral	2547
+493340	Planet Coaster	Strategy	positive	16042
+504230	Celeste	Action	negative	2031
+504230	Celeste	Action	neutral	1792
+504230	Celeste	Action	positive	11011
+504230	Celeste	Adventure	negative	2031
+504230	Celeste	Adventure	neutral	1792
+504230	Celeste	Adventure	positive	11011
+504230	Celeste	Indie	negative	2031
+504230	Celeste	Indie	neutral	1792
+504230	Celeste	Indie	positive	11011
+508440	Totally Accurate Battle Simulator	Early Access	negative	4597
+508440	Totally Accurate Battle Simulator	Early Access	neutral	6656
+508440	Totally Accurate Battle Simulator	Early Access	positive	20991
+508440	Totally Accurate Battle Simulator	Indie	negative	4597
+508440	Totally Accurate Battle Simulator	Indie	neutral	6656
+508440	Totally Accurate Battle Simulator	Indie	positive	20991
+508440	Totally Accurate Battle Simulator	Simulation	negative	4597
+508440	Totally Accurate Battle Simulator	Simulation	neutral	6656
+508440	Totally Accurate Battle Simulator	Simulation	positive	20991
+508440	Totally Accurate Battle Simulator	Strategy	negative	4597
+508440	Totally Accurate Battle Simulator	Strategy	neutral	6656
+508440	Totally Accurate Battle Simulator	Strategy	positive	20991
+513710	SCUM	Action	negative	6425
+513710	SCUM	Action	neutral	2357
+513710	SCUM	Action	positive	10874
+513710	SCUM	Adventure	negative	6425
+513710	SCUM	Adventure	neutral	2357
+513710	SCUM	Adventure	positive	10874
+513710	SCUM	Early Access	negative	6425
+513710	SCUM	Early Access	neutral	2357
+513710	SCUM	Early Access	positive	10874
+513710	SCUM	Indie	negative	6425
+513710	SCUM	Indie	neutral	2357
+513710	SCUM	Indie	positive	10874
+513710	SCUM	Massively Multiplayer	negative	6425
+513710	SCUM	Massively Multiplayer	neutral	2357
+513710	SCUM	Massively Multiplayer	positive	10874
+518790	theHunter: Call of the Wild™	Adventure	negative	4932
+518790	theHunter: Call of the Wild™	Adventure	neutral	3151
+518790	theHunter: Call of the Wild™	Adventure	positive	15261
+518790	theHunter: Call of the Wild™	Simulation	negative	4932
+518790	theHunter: Call of the Wild™	Simulation	neutral	3151
+518790	theHunter: Call of the Wild™	Simulation	positive	15261
+518790	theHunter: Call of the Wild™	Sports	negative	4932
+518790	theHunter: Call of the Wild™	Sports	neutral	3151
+518790	theHunter: Call of the Wild™	Sports	positive	15261
+519860	DUSK	Action	negative	1328
+519860	DUSK	Action	neutral	1365
+519860	DUSK	Action	positive	6576
+519860	DUSK	Indie	negative	1328
+519860	DUSK	Indie	neutral	1365
+519860	DUSK	Indie	positive	6576
+524220	NieR:Automata™	Action	negative	7022
+524220	NieR:Automata™	Action	neutral	4932
+524220	NieR:Automata™	Action	positive	22581
+524220	NieR:Automata™	RPG	negative	7022
+524220	NieR:Automata™	RPG	neutral	4932
+524220	NieR:Automata™	RPG	positive	22581
+526870	Satisfactory	Adventure	negative	4580
+526870	Satisfactory	Adventure	neutral	4159
+526870	Satisfactory	Adventure	positive	16412
+526870	Satisfactory	Early Access	negative	4580
+526870	Satisfactory	Early Access	neutral	4159
+526870	Satisfactory	Early Access	positive	16412
+526870	Satisfactory	Indie	negative	4580
+526870	Satisfactory	Indie	neutral	4159
+526870	Satisfactory	Indie	positive	16412
+526870	Satisfactory	Simulation	negative	4580
+526870	Satisfactory	Simulation	neutral	4159
+526870	Satisfactory	Simulation	positive	16412
+526870	Satisfactory	Strategy	negative	4580
+526870	Satisfactory	Strategy	neutral	4159
+526870	Satisfactory	Strategy	positive	16412
+535930	Two Point Hospital	Indie	negative	1893
+535930	Two Point Hospital	Indie	neutral	962
+535930	Two Point Hospital	Indie	positive	8400
+535930	Two Point Hospital	Simulation	negative	1893
+535930	Two Point Hospital	Simulation	neutral	962
+535930	Two Point Hospital	Simulation	positive	8400
+546560	Half-Life: Alyx	Action	negative	5478
+546560	Half-Life: Alyx	Action	neutral	4566
+546560	Half-Life: Alyx	Action	positive	27828
+546560	Half-Life: Alyx	Adventure	negative	5478
+546560	Half-Life: Alyx	Adventure	neutral	4566
+546560	Half-Life: Alyx	Adventure	positive	27828
+548430	Deep Rock Galactic	Action	negative	7087
+548430	Deep Rock Galactic	Action	neutral	10008
+548430	Deep Rock Galactic	Action	positive	29851
+552500	Warhammer: Vermintide 2	Action	negative	6955
+552500	Warhammer: Vermintide 2	Action	neutral	4663
+552500	Warhammer: Vermintide 2	Action	positive	19185
+552500	Warhammer: Vermintide 2	Indie	negative	6955
+552500	Warhammer: Vermintide 2	Indie	neutral	4663
+552500	Warhammer: Vermintide 2	Indie	positive	19185
+552520	Far Cry 5	Action	negative	8878
+552520	Far Cry 5	Action	neutral	5118
+552520	Far Cry 5	Action	positive	21172
+552520	Far Cry 5	Adventure	negative	8878
+552520	Far Cry 5	Adventure	neutral	5118
+552520	Far Cry 5	Adventure	positive	21172
+570940	DARK SOULS™: REMASTERED	Action	negative	4641
+570940	DARK SOULS™: REMASTERED	Action	neutral	3249
+570940	DARK SOULS™: REMASTERED	Action	positive	9769
+571740	Golf It!	Casual	negative	1450
+571740	Golf It!	Casual	neutral	1385
+571740	Golf It!	Casual	positive	3502
+571740	Golf It!	Early Access	negative	1450
+571740	Golf It!	Early Access	neutral	1385
+571740	Golf It!	Early Access	positive	3502
+571740	Golf It!	Indie	negative	1450
+571740	Golf It!	Indie	neutral	1385
+571740	Golf It!	Indie	positive	3502
+571740	Golf It!	Simulation	negative	1450
+571740	Golf It!	Simulation	neutral	1385
+571740	Golf It!	Simulation	positive	3502
+571740	Golf It!	Sports	negative	1450
+571740	Golf It!	Sports	neutral	1385
+571740	Golf It!	Sports	positive	3502
+577800	NBA 2K18	Simulation	negative	1825
+577800	NBA 2K18	Simulation	neutral	594
+577800	NBA 2K18	Simulation	positive	1398
+577800	NBA 2K18	Sports	negative	1825
+577800	NBA 2K18	Sports	neutral	594
+577800	NBA 2K18	Sports	positive	1398
+578080	PLAYERUNKNOWN'S BATTLEGROUNDS	Action	negative	108935
+578080	PLAYERUNKNOWN'S BATTLEGROUNDS	Action	neutral	63553
+578080	PLAYERUNKNOWN'S BATTLEGROUNDS	Action	positive	145158
+578080	PLAYERUNKNOWN'S BATTLEGROUNDS	Adventure	negative	108935
+578080	PLAYERUNKNOWN'S BATTLEGROUNDS	Adventure	neutral	63553
+578080	PLAYERUNKNOWN'S BATTLEGROUNDS	Adventure	positive	145158
+578080	PLAYERUNKNOWN'S BATTLEGROUNDS	Massively Multiplayer	negative	108935
+578080	PLAYERUNKNOWN'S BATTLEGROUNDS	Massively Multiplayer	neutral	63553
+578080	PLAYERUNKNOWN'S BATTLEGROUNDS	Massively Multiplayer	positive	145158
+581320	Insurgency: Sandstorm	Action	negative	7670
+581320	Insurgency: Sandstorm	Action	neutral	5554
+581320	Insurgency: Sandstorm	Action	positive	24946
+582010	Monster Hunter: World	Action	negative	20289
+582010	Monster Hunter: World	Action	neutral	17124
+582010	Monster Hunter: World	Action	positive	60238
+582160	Assassin's Creed Origins	Action	negative	3385
+582160	Assassin's Creed Origins	Action	neutral	1942
+582160	Assassin's Creed Origins	Action	positive	12475
+582160	Assassin's Creed Origins	Adventure	negative	3385
+582160	Assassin's Creed Origins	Adventure	neutral	1942
+582160	Assassin's Creed Origins	Adventure	positive	12475
+582160	Assassin's Creed Origins	RPG	negative	3385
+582160	Assassin's Creed Origins	RPG	neutral	1942
+582160	Assassin's Creed Origins	RPG	positive	12475
+582660	Black Desert Online	Action	negative	6362
+582660	Black Desert Online	Action	neutral	4064
+582660	Black Desert Online	Action	positive	14348
+582660	Black Desert Online	Adventure	negative	6362
+582660	Black Desert Online	Adventure	neutral	4064
+582660	Black Desert Online	Adventure	positive	14348
+582660	Black Desert Online	Massively Multiplayer	negative	6362
+582660	Black Desert Online	Massively Multiplayer	neutral	4064
+582660	Black Desert Online	Massively Multiplayer	positive	14348
+582660	Black Desert Online	RPG	negative	6362
+582660	Black Desert Online	RPG	neutral	4064
+582660	Black Desert Online	RPG	positive	14348
+582660	Black Desert Online	Simulation	negative	6362
+582660	Black Desert Online	Simulation	neutral	4064
+582660	Black Desert Online	Simulation	positive	14348
+582660	Black Desert Online	Strategy	negative	6362
+582660	Black Desert Online	Strategy	neutral	4064
+582660	Black Desert Online	Strategy	positive	14348
+583950	Artifact	Strategy	negative	2936
+583950	Artifact	Strategy	neutral	1126
+583950	Artifact	Strategy	positive	5390
+588650	Dead Cells	Action	negative	3608
+588650	Dead Cells	Action	neutral	2421
+588650	Dead Cells	Action	positive	15627
+588650	Dead Cells	Indie	negative	3608
+588650	Dead Cells	Indie	neutral	2421
+588650	Dead Cells	Indie	positive	15627
+594570	Total War: WARHAMMER II	Action	negative	7275
+594570	Total War: WARHAMMER II	Action	neutral	7142
+594570	Total War: WARHAMMER II	Action	positive	33296
+594570	Total War: WARHAMMER II	Strategy	negative	7275
+594570	Total War: WARHAMMER II	Strategy	neutral	7142
+594570	Total War: WARHAMMER II	Strategy	positive	33296
+594650	Hunt: Showdown	Action	negative	9918
+594650	Hunt: Showdown	Action	neutral	4472
+594650	Hunt: Showdown	Action	positive	24525
+613100	House Flipper	Indie	negative	4202
+613100	House Flipper	Indie	neutral	2224
+613100	House Flipper	Indie	positive	12451
+613100	House Flipper	Simulation	negative	4202
+613100	House Flipper	Simulation	neutral	2224
+613100	House Flipper	Simulation	positive	12451
+620980	Beat Saber	Indie	negative	5626
+620980	Beat Saber	Indie	neutral	6368
+620980	Beat Saber	Indie	positive	23698
+621060	PC Building Simulator	Indie	negative	2389
+621060	PC Building Simulator	Indie	neutral	2104
+621060	PC Building Simulator	Indie	positive	9413
+621060	PC Building Simulator	Simulation	negative	2389
+621060	PC Building Simulator	Simulation	neutral	2104
+621060	PC Building Simulator	Simulation	positive	9413
+629760	MORDHAU	Action	negative	13238
+629760	MORDHAU	Action	neutral	11065
+629760	MORDHAU	Action	positive	30157
+629760	MORDHAU	Indie	negative	13238
+629760	MORDHAU	Indie	neutral	11065
+629760	MORDHAU	Indie	positive	30157
+636480	Ravenfield	Action	negative	3168
+636480	Ravenfield	Action	neutral	2969
+636480	Ravenfield	Action	positive	13157
+636480	Ravenfield	Early Access	negative	3168
+636480	Ravenfield	Early Access	neutral	2969
+636480	Ravenfield	Early Access	positive	13157
+636480	Ravenfield	Indie	negative	3168
+636480	Ravenfield	Indie	neutral	2969
+636480	Ravenfield	Indie	positive	13157
+637090	BATTLETECH	Action	negative	4293
+637090	BATTLETECH	Action	neutral	1088
+637090	BATTLETECH	Action	positive	11916
+637090	BATTLETECH	Adventure	negative	4293
+637090	BATTLETECH	Adventure	neutral	1088
+637090	BATTLETECH	Adventure	positive	11916
+637090	BATTLETECH	Strategy	negative	4293
+637090	BATTLETECH	Strategy	neutral	1088
+637090	BATTLETECH	Strategy	positive	11916
+637650	FINAL FANTASY XV WINDOWS EDITION	RPG	negative	2867
+637650	FINAL FANTASY XV WINDOWS EDITION	RPG	neutral	1432
+637650	FINAL FANTASY XV WINDOWS EDITION	RPG	positive	8321
+638970	Yakuza 0	Action	negative	3475
+638970	Yakuza 0	Action	neutral	3692
+638970	Yakuza 0	Action	positive	11996
+638970	Yakuza 0	Adventure	negative	3475
+638970	Yakuza 0	Adventure	neutral	3692
+638970	Yakuza 0	Adventure	positive	11996
+638970	Yakuza 0	RPG	negative	3475
+638970	Yakuza 0	RPG	neutral	3692
+638970	Yakuza 0	RPG	positive	11996
+640820	Pathfinder: Kingmaker	RPG	negative	3579
+640820	Pathfinder: Kingmaker	RPG	neutral	694
+640820	Pathfinder: Kingmaker	RPG	positive	8917
+644560	Mirror	Adventure	negative	1197
+644560	Mirror	Adventure	neutral	1635
+644560	Mirror	Adventure	positive	3411
+644560	Mirror	Indie	negative	1197
+644560	Mirror	Indie	neutral	1635
+644560	Mirror	Indie	positive	3411
+644560	Mirror	RPG	negative	1197
+644560	Mirror	RPG	neutral	1635
+644560	Mirror	RPG	positive	3411
+644930	They Are Billions	Strategy	negative	4698
+644930	They Are Billions	Strategy	neutral	1120
+644930	They Are Billions	Strategy	positive	8692
+646570	Slay the Spire	Indie	negative	7018
+646570	Slay the Spire	Indie	neutral	5177
+646570	Slay the Spire	Indie	positive	29372
+646570	Slay the Spire	Strategy	negative	7018
+646570	Slay the Spire	Strategy	neutral	5177
+646570	Slay the Spire	Strategy	positive	29372
+646910	The Crew 2	Action	negative	2369
+646910	The Crew 2	Action	neutral	1970
+646910	The Crew 2	Action	positive	5922
+646910	The Crew 2	Massively Multiplayer	negative	2369
+646910	The Crew 2	Massively Multiplayer	neutral	1970
+646910	The Crew 2	Massively Multiplayer	positive	5922
+646910	The Crew 2	Racing	negative	2369
+646910	The Crew 2	Racing	neutral	1970
+646910	The Crew 2	Racing	positive	5922
+648350	Jurassic World Evolution	Simulation	negative	3962
+648350	Jurassic World Evolution	Simulation	neutral	2251
+648350	Jurassic World Evolution	Simulation	positive	12331
+648350	Jurassic World Evolution	Strategy	negative	3962
+648350	Jurassic World Evolution	Strategy	neutral	2251
+648350	Jurassic World Evolution	Strategy	positive	12331
+648800	Raft	Adventure	negative	7731
+648800	Raft	Adventure	neutral	7609
+648800	Raft	Adventure	positive	25423
+648800	Raft	Early Access	negative	7731
+648800	Raft	Early Access	neutral	7609
+648800	Raft	Early Access	positive	25423
+648800	Raft	Indie	negative	7731
+648800	Raft	Indie	neutral	7609
+648800	Raft	Indie	positive	25423
+648800	Raft	Simulation	negative	7731
+648800	Raft	Simulation	neutral	7609
+648800	Raft	Simulation	positive	25423
+666140	My Time At Portia	Adventure	negative	2015
+666140	My Time At Portia	Adventure	neutral	787
+666140	My Time At Portia	Adventure	positive	8014
+666140	My Time At Portia	Casual	negative	2015
+666140	My Time At Portia	Casual	neutral	787
+666140	My Time At Portia	Casual	positive	8014
+666140	My Time At Portia	Indie	negative	2015
+666140	My Time At Portia	Indie	neutral	787
+666140	My Time At Portia	Indie	positive	8014
+666140	My Time At Portia	RPG	negative	2015
+666140	My Time At Portia	RPG	neutral	787
+666140	My Time At Portia	RPG	positive	8014
+666140	My Time At Portia	Simulation	negative	2015
+666140	My Time At Portia	Simulation	neutral	787
+666140	My Time At Portia	Simulation	positive	8014
+678950	DRAGON BALL FighterZ	Action	negative	3431
+678950	DRAGON BALL FighterZ	Action	neutral	3274
+678950	DRAGON BALL FighterZ	Action	positive	10133
+683320	GRIS	Adventure	negative	1539
+683320	GRIS	Adventure	neutral	1198
+683320	GRIS	Adventure	positive	10774
+683320	GRIS	Indie	negative	1539
+683320	GRIS	Indie	neutral	1198
+683320	GRIS	Indie	positive	10774
+698780	Doki Doki Literature Club	Casual	negative	22448
+698780	Doki Doki Literature Club	Casual	neutral	21408
+698780	Doki Doki Literature Club	Casual	positive	45601
+698780	Doki Doki Literature Club	Free to Play	negative	22448
+698780	Doki Doki Literature Club	Free to Play	neutral	21408
+698780	Doki Doki Literature Club	Free to Play	positive	45601
+698780	Doki Doki Literature Club	Indie	negative	22448
+698780	Doki Doki Literature Club	Indie	neutral	21408
+698780	Doki Doki Literature Club	Indie	positive	45601
+728880	Overcooked! 2	Action	negative	1263
+728880	Overcooked! 2	Action	neutral	930
+728880	Overcooked! 2	Action	positive	4540
+728880	Overcooked! 2	Casual	negative	1263
+728880	Overcooked! 2	Casual	neutral	930
+728880	Overcooked! 2	Casual	positive	4540
+728880	Overcooked! 2	Indie	negative	1263
+728880	Overcooked! 2	Indie	neutral	930
+728880	Overcooked! 2	Indie	positive	4540
+730310	DYNASTY WARRIORS 9	Action	negative	506
+730310	DYNASTY WARRIORS 9	Action	neutral	148
+730310	DYNASTY WARRIORS 9	Action	positive	582
+739630	Phasmophobia	Action	negative	31637
+739630	Phasmophobia	Action	neutral	28629
+739630	Phasmophobia	Action	positive	69098
+739630	Phasmophobia	Early Access	negative	31637
+739630	Phasmophobia	Early Access	neutral	28629
+739630	Phasmophobia	Early Access	positive	69098
+739630	Phasmophobia	Indie	negative	31637
+739630	Phasmophobia	Indie	neutral	28629
+739630	Phasmophobia	Indie	positive	69098
+779340	Total War: THREE KINGDOMS	Action	negative	2672
+779340	Total War: THREE KINGDOMS	Action	neutral	2043
+779340	Total War: THREE KINGDOMS	Action	positive	11333
+779340	Total War: THREE KINGDOMS	Strategy	negative	2672
+779340	Total War: THREE KINGDOMS	Strategy	neutral	2043
+779340	Total War: THREE KINGDOMS	Strategy	positive	11333
+782330	DOOM Eternal	Action	negative	13691
+782330	DOOM Eternal	Action	neutral	16097
+782330	DOOM Eternal	Action	positive	42411
+787860	Farming Simulator 19	Simulation	negative	2451
+787860	Farming Simulator 19	Simulation	neutral	2436
+787860	Farming Simulator 19	Simulation	positive	9648
+812140	Assassin's Creed Odyssey	Action	negative	5162
+812140	Assassin's Creed Odyssey	Action	neutral	3974
+812140	Assassin's Creed Odyssey	Action	positive	22449
+812140	Assassin's Creed Odyssey	Adventure	negative	5162
+812140	Assassin's Creed Odyssey	Adventure	neutral	3974
+812140	Assassin's Creed Odyssey	Adventure	positive	22449
+812140	Assassin's Creed Odyssey	RPG	negative	5162
+812140	Assassin's Creed Odyssey	RPG	neutral	3974
+812140	Assassin's Creed Odyssey	RPG	positive	22449
+814380	Sekiro™: Shadows Die Twice	Action	negative	8109
+814380	Sekiro™: Shadows Die Twice	Action	neutral	5758
+814380	Sekiro™: Shadows Die Twice	Action	positive	20275
+814380	Sekiro™: Shadows Die Twice	Adventure	negative	8109
+814380	Sekiro™: Shadows Die Twice	Adventure	neutral	5758
+814380	Sekiro™: Shadows Die Twice	Adventure	positive	20275
+823130	Totally Accurate Battlegrounds	Action	negative	5296
+823130	Totally Accurate Battlegrounds	Action	neutral	3864
+823130	Totally Accurate Battlegrounds	Action	positive	11512
+823130	Totally Accurate Battlegrounds	Indie	negative	5296
+823130	Totally Accurate Battlegrounds	Indie	neutral	3864
+823130	Totally Accurate Battlegrounds	Indie	positive	11512
+834910	ATLAS	Action	negative	8633
+834910	ATLAS	Action	neutral	2148
+834910	ATLAS	Action	positive	8830
+834910	ATLAS	Adventure	negative	8633
+834910	ATLAS	Adventure	neutral	2148
+834910	ATLAS	Adventure	positive	8830
+834910	ATLAS	Early Access	negative	8633
+834910	ATLAS	Early Access	neutral	2148
+834910	ATLAS	Early Access	positive	8830
+834910	ATLAS	Massively Multiplayer	negative	8633
+834910	ATLAS	Massively Multiplayer	neutral	2148
+834910	ATLAS	Massively Multiplayer	positive	8830
+834910	ATLAS	RPG	negative	8633
+834910	ATLAS	RPG	neutral	2148
+834910	ATLAS	RPG	positive	8830
+841370	NBA 2K19	Simulation	negative	1785
+841370	NBA 2K19	Simulation	neutral	940
+841370	NBA 2K19	Simulation	positive	2009
+841370	NBA 2K19	Sports	negative	1785
+841370	NBA 2K19	Sports	neutral	940
+841370	NBA 2K19	Sports	positive	2009
+863550	HITMAN™ 2	Action	negative	3625
+863550	HITMAN™ 2	Action	neutral	3945
+863550	HITMAN™ 2	Action	positive	14303
+872790	Football Manager 2019	Simulation	negative	754
+872790	Football Manager 2019	Simulation	neutral	640
+872790	Football Manager 2019	Simulation	positive	2595
+872790	Football Manager 2019	Sports	negative	754
+872790	Football Manager 2019	Sports	neutral	640
+872790	Football Manager 2019	Sports	positive	2595
+883710	Resident Evil 2	Action	negative	6349
+883710	Resident Evil 2	Action	neutral	4885
+883710	Resident Evil 2	Action	positive	20635
+945360	Among Us	Casual	negative	51744
+945360	Among Us	Casual	neutral	79605
+945360	Among Us	Casual	positive	163406
+960090	Bloons TD 6	Strategy	negative	7274
+960090	Bloons TD 6	Strategy	neutral	11338
+960090	Bloons TD 6	Strategy	positive	23291
+1057090	Ori and the Will of the Wisps	Action	negative	1597
+1057090	Ori and the Will of the Wisps	Action	neutral	1587
+1057090	Ori and the Will of the Wisps	Action	positive	11196
+1113000	Persona 4 Golden	RPG	negative	3744
+1113000	Persona 4 Golden	RPG	neutral	5314
+1113000	Persona 4 Golden	RPG	positive	19013
+1118200	People Playground	Action	negative	2746
+1118200	People Playground	Action	neutral	4761
+1118200	People Playground	Action	positive	9530
+1118200	People Playground	Casual	negative	2746
+1118200	People Playground	Casual	neutral	4761
+1118200	People Playground	Casual	positive	9530
+1118200	People Playground	Indie	negative	2746
+1118200	People Playground	Indie	neutral	4761
+1118200	People Playground	Indie	positive	9530
+1118200	People Playground	Simulation	negative	2746
+1118200	People Playground	Simulation	neutral	4761
+1118200	People Playground	Simulation	positive	9530
+1145360	Hades	Action	negative	7803
+1145360	Hades	Action	neutral	9717
+1145360	Hades	Action	positive	48109
+1145360	Hades	Indie	negative	7803
+1145360	Hades	Indie	neutral	9717
+1145360	Hades	Indie	positive	48109
+1145360	Hades	RPG	negative	7803
+1145360	Hades	RPG	neutral	9717
+1145360	Hades	RPG	positive	48109
+1158310	Crusader Kings III	RPG	negative	3611
+1158310	Crusader Kings III	RPG	neutral	3797
+1158310	Crusader Kings III	RPG	positive	14399
+1158310	Crusader Kings III	Simulation	negative	3611
+1158310	Crusader Kings III	Simulation	neutral	3797
+1158310	Crusader Kings III	Simulation	positive	14399
+1158310	Crusader Kings III	Strategy	negative	3611
+1158310	Crusader Kings III	Strategy	neutral	3797
+1158310	Crusader Kings III	Strategy	positive	14399
+1180380	Stay Out	Action	negative	1090
+1180380	Stay Out	Action	neutral	359
+1180380	Stay Out	Action	positive	769
+1180380	Stay Out	Early Access	negative	1090
+1180380	Stay Out	Early Access	neutral	359
+1180380	Stay Out	Early Access	positive	769
+1180380	Stay Out	Free to Play	negative	1090
+1180380	Stay Out	Free to Play	neutral	359
+1180380	Stay Out	Free to Play	positive	769
+1180380	Stay Out	Indie	negative	1090
+1180380	Stay Out	Indie	neutral	359
+1180380	Stay Out	Indie	positive	769
+1180380	Stay Out	Massively Multiplayer	negative	1090
+1180380	Stay Out	Massively Multiplayer	neutral	359
+1180380	Stay Out	Massively Multiplayer	positive	769
+1180380	Stay Out	RPG	negative	1090
+1180380	Stay Out	RPG	neutral	359
+1180380	Stay Out	RPG	positive	769
+1190460	DEATH STRANDING	Action	negative	3642
+1190460	DEATH STRANDING	Action	neutral	2853
+1190460	DEATH STRANDING	Action	positive	10608
+1190460	DEATH STRANDING	Adventure	negative	3642
+1190460	DEATH STRANDING	Adventure	neutral	2853
+1190460	DEATH STRANDING	Adventure	positive	10608
+1222700	A Way Out	Action	negative	859
+1222700	A Way Out	Action	neutral	639
+1222700	A Way Out	Action	positive	2897
+1222700	A Way Out	Adventure	negative	859
+1222700	A Way Out	Adventure	neutral	639
+1222700	A Way Out	Adventure	positive	2897
+1222700	A Way Out	Indie	negative	859
+1222700	A Way Out	Indie	neutral	639
+1222700	A Way Out	Indie	positive	2897
+1225330	NBA 2K21	Simulation	negative	1652
+1225330	NBA 2K21	Simulation	neutral	972
+1225330	NBA 2K21	Simulation	positive	1586
+1225330	NBA 2K21	Sports	negative	1652
+1225330	NBA 2K21	Sports	neutral	972
+1225330	NBA 2K21	Sports	positive	1586
+1289310	Helltaker	Adventure	negative	4642
+1289310	Helltaker	Adventure	neutral	8270
+1289310	Helltaker	Adventure	positive	23425
+1289310	Helltaker	Free to Play	negative	4642
+1289310	Helltaker	Free to Play	neutral	8270
+1289310	Helltaker	Free to Play	positive	23425
+1289310	Helltaker	Indie	negative	4642
+1289310	Helltaker	Indie	neutral	8270
+1289310	Helltaker	Indie	positive	23425

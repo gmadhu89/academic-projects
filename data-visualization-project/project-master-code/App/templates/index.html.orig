@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>CSE6242 Game Data Visualization</title>
+    <meta name="keywords" content="Game, Vizualization">
+    <meta name="description" content="">
+    <meta name="author" content="Group 37">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="/static/images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/static/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="/static/images/loading.gif" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header-top">
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                            <div class="full">
+                                <div class="center-desk">
+                                    <div class="logo">
+                                        <a href="index.html"><img src="/static/images/gt-logo-gold.png" alt="#" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end header inner -->
+
+            <!-- end header -->
+            <section class="slider_section">
+                <div class="banner_main">
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-2 padding_left0">
+                                <div class="menu-area">
+                                <div class="limit-box">
+                                    <nav class="main-menu">
+                                        <ul class="menu-area-main">
+                                            <li class="active"> <a href="#intro">Introduction</a> </li>
+                                            <li> <a href="#background">Background</a> </li>
+                                            <li> <a href="#Data Vizualization">Data Viz</a> </li>
+                                            <li> <a href="#airesult">AI prediction</a> </li>
+                                            <li> <a href="#analysis">Analysis</a> </li>
+                                            <li> <a href="#concls">Conclusion</a> </li>
+                                           
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 ">
+                                <div class="text-bg">
+                                    <h1>GAME Data Viz</h1>
+                                    <span style="font-weight: bold;">Predict future game Blockbuster</span>
+                                    <span>Group 10: Balogun, Shuaib A; 
+                                        Ganesan, Madhumitha; Priambada, Satria;
+                                        Vegesna, Manasa; Yu, Ting; Zhang, Wenxin
+                                    </span>
+                                </div>
+                            </div>
+                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ">
+                                <div class="text-img">
+                                   <figure><img src="/static/images/img.png" alt="#"/></figure>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+        
+           </section>
+        </div>
+    </header>
+
+   <!-- background -->
+   <div id="background" class="testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Why Game Data is Important</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 offset-md-2">
+                <div class="row box">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                        <div class="testimonial_box">
+                            <figure><img src="/static/images/test1.png" alt="#" /></figure>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
+                        <div class="testimonial_box">
+                            <figure><img src="/static/images/test2.png" alt="#" /></figure>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                        <div class="testimonial_box">
+                            <figure><img src="/static/images/test3.png" alt="#" /></figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="clients_box">
+                    <h3>Gaming Market Value is Huge and Growing! </h3>
+                    <p>The biggest reason why predicting next blockbuster game is interesting is because 
+                        there's a lot of monetary incentive involved.
+                        
+                        Based on 2020 data, The largest gaming companies in the West, Activision Blizzard and Electronic Arts, 
+                        saw multibillion-dollar revenues climb by more than 15% from 2019 to 2020 
+                        according to company earnings. 
+                        
+                        In Asia, Nintendo saw an 80% jump in revenues over the same period, 
+                        while the largest gaming and tech conglomerate Tencent saw a 
+                        year-over-year increase of 29% for Q2 2020.
+                        
+                        COVID-19 has become one of the reason why 
+                        game data is important because it has 
+                        keep potential consumers at home and more willing to play games.
+                        
+                        Considering gamers make up an estimated 34% of 
+                        the global population, and more developments on the 
+                        horizon for the gaming market including new consoles 
+                        and mediums, the industry’s rise isn’t expected 
+                        to slow down anytime soon.
+
+                        Traditional market research to catch up on what might be the next 
+                        blockbuster games might not cut it anymore. That's why our Group
+                        is trying to do Data Analysis and Visualization on Game Data!
+                    </p>
+                    Image <a href="https://www.visualcapitalist.com/making-moves-in-the-gaming-market/">credits</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+   <!-- end background -->
+    <!-- Data Visualisation -->
+    <div id="Data Vizualization" class="We_are">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Data Vizualization</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                <select id="chartdropdown">
+                    <option selected>Open this select menu</option>
+                    <option value="sales"> Predicted Sales</option>
+                    <option value="playtime"> Predicted Playtime</option>
+                </select>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" style="height:500px">
+            <div class="row h-100 justify-content-center">
+                <div class="col-2 ml-1 mr-1 pt-3 pb-3" id="input_panel" style="background-color:#FAF9F6">
+                 <!-- D3 script will add the menu options -->
+                </div>
+                
+                <div class="col-8 ml-1 mr-1 pt-3 pb-3" id="chart_area" style="background-color:#efefef">
+                    <div class="row h-100">
+                        
+                        <div class = "col-12" id="chart">
+
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- end We are -->
+
+    <!-- airesult  -->
+    <div id="airesult" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>AI results</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="airesViz"></div>
+                    <div class="about-box">
+                        <p> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            <br> labore et dolore magna aliqua. Ut enim conseq</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end abouts -->
+
+    <!-- analysis -->
+    <div id="analysis" class="our">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Analysis</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 margin_bottom">
+                    <div class="row">
+
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                            <div class="two-box">
+                                <figure><img src="/static/images/pairplot.png" alt="#" /></figure>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+
+                            <div class="Games">
+                                <h3>Pairplot</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 margin_bottom">
+                    <div class="row">
+
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                            <div class="two-box">
+                                <figure><img src="/static/images/heatmap.png" alt="#" /></figure>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+
+                            <div class="Games">
+                                <h3>Heatmap</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                            <div class="two-box">
+                                <figure><img src="/static/images/poisson_predicted_vs_actual.png" alt="#" /></figure>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+
+                            <div class="Games">
+                                <h3>Prediction</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <!-- end analysis -->
+
+    <!--  concls -->
+    <footr>
+        <div id="concls" class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Conclusion</h2>
+                    </div>
+                    <p style="color: aliceblue;">adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                        <br>aliqua. Ut enim ad minim veniam, quis
+                        <br>nostrud exercitation ullamco</p>
+
+                </div>
+
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <p>© 2021 All Rights Reserved. <a href="https://html.design/">Free html Templates</a></p>
+                </div>
+            </div>
+        </div>
+    </footr>
+    <!-- end concls -->
+    <!-- Javascript files-->
+    <script type="text/javascript" src="/static/js/d3.v5.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/jquery-3.0.0.min.js"></script>
+    <script src="/static/js/plugin.js"></script>
+    <!-- D3 files-->
+    <script src="/static/js/d3.v5.min.js"></script>
+    <script src="/static/js/d3-legend.min.js"></script>
+
+    <script src="/static/js/d3-dsv.min.js"></script>
+    <script src="/static/js/topojson.v2.min.js"></script>
+    <script src="/static/js/d3-tip.min.js"></script>
+    <script src="/static/js/d3-geo-projection.v2.min.js"></script>
+    <!-- sidebar -->
+    <script src="/static/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/static/js/custom.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+    <!-- Main d3 vis scripts -->
+    <!-- <script type="text/javascript" src="/static/vis.js"></script> -->
+
+    <script>
+
+//################ ML Model Part ##################
+var genre_list = ['Fighting', 'Strategy', 'Adventure', 'Action', 'Role-Playing', 
+'Shooter', 'Platform', 'Action-Adventure', 'MMO', 'Puzzle', 'Sports', 'Racing', 
+'Simulation', 'Music', 'Misc'];
+var content_rating_list = ['T', 'E10', 'M', 'RP', 'E'];
+var platform_list = ['PS3', 'X360', 'PC', 'PS4', 'NS', 'XOne', 'XBL', 'PSN', 'XB', 
+'PSV', '3DS', 'WiiU', 'And', 'OSX', 'Linux', 'WW', 'PS', 'SAT', 'NGage', 'iOS', 
+'PS2', 'DS', 'Wii', 'PSP', 'N64', 'DC', 'GB', 'DSiW', 'GBA'];
+var price_range = [0, 5500];
+
+var top_publisher_list = ["True", "False"];
+var expected_rating_list = Array.from(Array(11).keys())
+var year_since_release_list = Array.from(Array(21).keys())
+
+function getPlaytime(genre, content_rating, platform, price, callback) {
+    fetch('/playtime?genre='+genre
+        +'&content_rating='+content_rating
+        +'&platform='+platform
+        +'&price='+price)
+    .then(function(response) {
+        return response.json();
+    }).then(function(text) {
+        callback(text, genre, content_rating, platform, price)
+    });
+}
+
+function getAllSales(expected_rating, is_top_publisher, callback) {
+    fetch('/all_sales?expected_rating='+expected_rating+'&is_top_publisher='+is_top_publisher)
+    .then(function(response) {
+        return response.json();
+    }).then(function(text) {
+        callback(text, expected_rating, is_top_publisher)
+    });
+}
+
+//################ Left Menu Design ##################
+d3.select("#input_panel")
+.style("background-color","#FAF9F6")
+var heading = d3.select("#input_panel")
+.append("h3")
+.text("What does your game look like?")
+
+
+var genre = d3.select("#input_panel").append("div")
+.attr("class","col-12")
+.attr("id", "genre")
+genre.append("p").text("Genre:");
+// genre.append("button").text("Select One");
+var genre_select = genre.append('select')
+    .on('change', function(d) {
+        var params = getSelectedParams()
+        getPlaytime(params["genre"], params["content_rating"], params["platform"], params["price"], updatePlaytimeChart)
+    })
+    // .style("margin-left", "10px");
+$('select').niceSelect('destroy');
+genre_select.selectAll('option')
+    .data(genre_list)
+    .enter()
+    .append('option')
+    .attr('value', function(d){ return d; })
+    .text(function(d){ return d; })
+
+
+var platform = d3.select("#input_panel").append("div")
+.attr("class","col-12")
+.attr("id", "platform")
+platform.append("p").text("Platform:");
+
+var platform_select = platform.append('select')
+    .on('change', function(d) {
+        var params = getSelectedParams()
+        getPlaytime(params["genre"], params["content_rating"], params["platform"], params["price"], updatePlaytimeChart)
+    })
+    // .style("margin-left", "10px");
+$('select').niceSelect('destroy');
+platform_select.selectAll('option')
+    .data(platform_list)
+    .enter()
+    .append('option')
+    .attr('value', function(d){ return d; })
+    .text(function(d){ return d; })
+
+
+var content_rating = d3.select("#input_panel").append("div")
+.attr("class","col-12")
+.attr("id", "content_rating")
+content_rating.append("p").text("Content Rating:");
+
+var content_rating_select = content_rating.append('select')
+    .on('change', function(d) {
+        var params = getSelectedParams()
+        getPlaytime(params["genre"], params["content_rating"], params["platform"], params["price"], updatePlaytimeChart)
+    })
+    // .style("margin-left", "10px");
+$('select').niceSelect('destroy');
+content_rating_select.selectAll('option')
+    .data(content_rating_list)
+    .enter()
+    .append('option')
+    .attr('value', function(d){ return d; })
+    .text(function(d){ return d; })
+
+ 
+<<<<<<< HEAD
+// FIXME
+=======
+// Price Slider
+var price_display = 1
+>>>>>>> 74fe8444e2439a624bf3690d0b10746e8a63c362
+var price = d3.select("#input_panel")
+            .append("div")
+            .attr("class","col-12")
+            price.append("p").attr('id','price').text("Price: $" + price_display/100);
+        
+
+
+var price_range = d3.range(0,5500,100)
+console.log(price_range)
+
+var price_slider = price.append("input")
+                    .attr('type','range')
+                    .attr('min', 1)
+                    .attr('max',5500)
+                    .on("input",function(){
+                        price_display = this.value;
+                        console.log(price_display);
+                        d3.select("#price").text("Price: $" + price_display/100);
+                        var params = getSelectedParams()
+                         getPlaytime(params["genre"], params["content_rating"], params["platform"], params["price"], updatePlaytimeChart)
+                    })
+
+
+
+var publisher = d3.select("#input_panel").append("div")
+.attr("class", "col-12")
+.attr("id", "publisher")
+
+publisher.append("p").text("Is Top Publisher:")
+
+var publisher_select = publisher.append('select')
+    .on('change', function(d) {
+        var params = getSelectedParams()
+        getAllSales(params["expected_rating"], params["is_top_publisher"], updateSalesChart)   
+    })
+    // .style("margin-left", "10px");
+$('select').niceSelect('destroy');
+publisher_select.selectAll('option')
+    .data(top_publisher_list)
+    .enter()
+    .append('option')
+    .attr('value', function(d){ return d; })
+    .text(function(d){ return d; })
+
+
+var expected_rating = d3.select("#input_panel").append("div")
+.attr("class", "col-12")
+.attr("id", "expected_rating")
+
+expected_rating.append("p").text("Expected Rating:")
+
+var expected_rating_select = expected_rating.append('select')
+    .on('change', function(d) {
+        var params = getSelectedParams()
+        getAllSales(params["expected_rating"], params["is_top_publisher"], updateSalesChart)
+    })
+$('select').niceSelect('destroy');
+expected_rating_select.selectAll('option')
+    .data(expected_rating_list)
+    .enter()
+    .append('option')
+    .attr('value', function(d){ return d; })
+    .text(function(d){ return d; })
+
+
+function getSelectedParams() {
+    var genre = genre_select.node()
+        .options[genre_select.node().selectedIndex].value;
+    var platform = platform_select.node()
+        .options[platform_select.node().selectedIndex].value;
+    var content_rating = content_rating_select.node()
+        .options[content_rating_select.node().selectedIndex].value;
+    // FIXME: grab price from slider
+    var is_top_publisher = publisher_select.node()
+        .options[publisher_select.node().selectedIndex].value;
+    var expected_rating = expected_rating_select.node()
+        .options[expected_rating_select.node().selectedIndex].value;
+
+    return {"is_top_publisher": is_top_publisher, "expected_rating": expected_rating,
+            "genre": genre, "platform": platform, "content_rating": content_rating, "price": price_display};
+}
+
+//############### Charting #################
+var padding = 50;
+var menu = d3.select("#chartdropdown")
+            .on("change",function(d){
+                var selectedOption = d3.select(this).property("value");
+                console.log(selectedOption)
+                if  (selectedOption == "sales"){
+                    sales_chart.attr("display","inline")
+                    playtime_chart.attr("display","none")
+                    var params = getSelectedParams()
+                    getAllSales(params["expected_rating"], params["is_top_publisher"], updateSalesChart)
+                }
+                else if (selectedOption == "playtime") {
+                    playtime_chart.attr("display","inline")
+                    var params = getSelectedParams()
+                    getPlaytime(params["genre"], params["content_rating"], params["platform"], params["price"], updatePlaytimeChart)
+                    sales_chart.attr("display","none")
+                }
+            })
+var sales_chart = d3.select("#chart")
+    .append("svg")
+    .attr("width", "100%")
+    .attr("height", "100%")
+  
+
+function updateSalesChart(sales, expected_rating, is_top_publisher) {
+    sales_chart.selectAll("*").remove()
+
+    var svgW = parseInt(sales_chart.style("width"), 10);
+    var svgH = parseInt(sales_chart.style("height"), 10);
+
+    var allSales = Object.keys(sales).flatMap(function(key) {
+        return sales[key];
+    });
+
+    var salesExtent = d3.extent(allSales)
+    var salesScale = d3.scaleLinear()
+        .range([svgH-padding, padding])
+        .domain([0, salesExtent[1]]);
+
+    var yearsExtent = d3.extent(year_since_release_list)
+    var yearsScale = d3.scaleLinear()
+        .range([padding, svgW-padding])
+        .domain(yearsExtent);    
+
+    sales_chart.append("g")
+        .attr("class", "x_axis")
+        .attr("transform", "translate("+[0, svgH-padding]+")")
+        .call(d3.axisBottom(yearsScale));
+
+    sales_chart.append("g")
+        .attr("class", "y_axis")
+        .attr("transform", "translate("+[padding, 0]+")")
+        .call(d3.axisLeft(salesScale));
+
+    sales_chart.append("text")
+        .attr("class", "title")
+        .attr("text-anchor", "middle")
+        .attr("transform","translate("+[svgW/2, padding/2]+")")
+        .attr("font-size", "1.2em")
+        .text("Sales Prediction by Region");
+
+    sales_chart.append("text")
+        .attr("class", "x_axis_label")
+        .attr("text-anchor", "middle")
+        .attr("transform",
+            "translate("+[svgW/2, svgH-padding/2]+")")
+        .attr("dy","0.5em")
+        .text("Years since release");
+
+    sales_chart.append("text")
+        .attr("class", "y_axis_label")
+        .attr("text-anchor", "middle")
+        .attr("transform","translate("+[padding/2, svgH/2]+") rotate(270)")
+        .attr("dy","-0.5em")
+        .text("Sales");
+
+    var line = d3.line()
+        .x(function(d, i) { return yearsScale(year_since_release_list[i]); })
+        .y(function(d) { return salesScale(d); })
+
+    Object.keys(sales).forEach(function(key, index) {
+        var data = sales[key]
+        var color = d3.schemeCategory10[index];
+
+        sales_chart.append("path")
+            .datum(data)
+            .attr("d", line)
+            .attr("fill", "none")
+            .attr("stroke", color)
+            .attr("stroke-width", 1.5);
+
+        sales_chart.append("text")
+            .attr("transform", "translate(" +[svgW-padding+10, salesScale(data[data.length-1])]+")")
+            .style("fill", color)
+            .text(key);
+    });
+}
+
+<<<<<<< HEAD
+
+var playtime_chart = d3.select("#playtime_chart")
+=======
+var playtime_chart = d3.select("#chart")
+>>>>>>> 74fe8444e2439a624bf3690d0b10746e8a63c362
+    .append("svg")
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("display","none")
+
+function updatePlaytimeChart(playtime, genre, content_rating, platform, price) {
+    playtime_chart.selectAll("*").remove()
+
+    console.log(playtime)
+
+    var svgW = parseInt(playtime_chart.style("width"), 10);
+    var svgH = parseInt(playtime_chart.style("height"), 10);
+
+    var allPlaytime = Object.keys(playtime).flatMap(function(key) {
+        return playtime[key];
+    });
+
+    var playtimeExtent = d3.extent(allPlaytime)
+    var playtimeScale = d3.scaleLinear()
+        .range([padding, svgW-padding])
+        .domain([0, playtimeExtent[1]]);
+
+    var regionScale = d3.scaleBand()
+        .range([padding, svgH-padding])
+        .domain(Object.keys(playtime));
+
+    playtime_chart.append("g")
+        .attr("class", "x_axis")
+        .attr("transform", "translate("+[0, svgH-padding]+")")
+        .call(d3.axisBottom(playtimeScale)
+            .tickSize(-svgH+padding*2)
+            .tickSizeOuter(0));
+
+    playtime_chart.append("g")
+        .attr("class", "y_axis")
+        .attr("transform", "translate("+[padding, 0]+")")
+        .call(d3.axisLeft(regionScale));
+
+    playtime_chart.append("text")
+        .attr("class", "x_axis_label")
+        .attr("text-anchor", "middle")
+        .attr("transform",
+            "translate("+[svgW/2, svgH-padding/2]+")")
+        .text("Playtime");
+
+    playtime_chart.append("text")
+        .attr("class", "title")
+        .attr("text-anchor", "middle")
+        .attr("transform","translate("+[svgW/2, padding/2]+")")
+        .attr("font-size", "1.2em")
+        .text("Estimated Playtime by Region");
+
+    playtime_chart.selectAll("rect")
+        .data(Object.keys(playtime))
+        .enter()
+        .append("rect")
+        .attr("height", (svgH-padding*2)/Object.keys(playtime).length-10)
+        .attr("width", function(d) {
+            return playtimeScale(playtime[d])-padding;
+        })
+        .attr("x", padding)
+        .attr("y", function(d) {
+            return regionScale(d)+5;
+        })
+        .attr("fill", "#366f79")
+        .attr("opacity", 0.5);
+}
+
+//########### Initialize ###########
+var params = getSelectedParams()
+getAllSales(params["expected_rating"], params["is_top_publisher"], updateSalesChart)
+getPlaytime(params["genre"], params["content_rating"], params["platform"], params["price"], updatePlaytimeChart)
+
+// function getSales(region, year_since_release, expected_rating, is_top_publisher) {
+//     fetch('/sales?region='+region+'&year_since_release='+year_since_release+'&expected_rating='+expected_rating+'&is_top_publisher='+is_top_publisher)
+//     .then(function(response) {
+//         return response.json();
+//     }).then(function(text) {
+//         console.log(text)
+//     });
+// }
+
+    </script>
+
+</body>
+
+</html>

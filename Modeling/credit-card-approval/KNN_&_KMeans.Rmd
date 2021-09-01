@@ -1,0 +1,230 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+#Using the same data set (credit_card_data.txt or credit_card_data-headers.txt) as in Question 2.2, use the ksvm or kknn function to find a good classifier:
+#(a)	using cross-validation (do this for the k-nearest-neighbors model; SVM is optional); and
+#(b)	splitting the data into training, validation, and test data sets (pick either KNN or SVM; the other is optional).
+
+
+*Solution for 3.1 (a)*
+*Using k-fold Cross-Validation for k-nearest neighbors model. In this model, I am using "caret" package in R to perform a 5-fold cross validation by applying the method "repeatedcv" in the function. This will split my data into 5 different sets and repeat the model 5-times with 4 sets as training and 1 set as testing data (80% training/20%testing). I am running this function for values of k from 1 to 100 to get the most optimal value of k. Based on the optimal value , I will build my final model*
+
+
+Reading the data and applying the functions in R:
+```{r}
+if (!require(caret)) install.packages("caret")
+if (!require(ggplot2)) install.packages("ggplot2")
+if (!require(e1071)) install.packages("e1071")
+options(scipen=999)
+library(caret)
+library(kknn)
+set.seed(1)
+credit_data <- read.table("credit_card_data-headers.txt", header = TRUE, sep = "\t", dec = ".")
+
+#Renaming the last column (dependent variable) to Response
+names(credit_data)[names(credit_data) == "R1"] <- "Response"
+
+# Building a knn model by applying 5-fold cross-validation on the data
+trControl <- trainControl(method  = "repeatedcv",
+                          number  = 5,
+                          repeats = 5)
+
+tuneGrid <- expand.grid(k = 1:100)
+
+model <- train(factor(Response) ~ .,
+             method     = "knn",
+             trControl  = trControl,
+             metric     = "Accuracy",
+             data       = credit_data,
+             tuneGrid = tuneGrid
+             #,tuneLength = 4
+             )
+
+#Statistics for the most optiomal k-value
+print(model)
+
+## Plot showing the most optimal k-value for knn classifier.
+plot(model)
+```
+
+From this k-fold cross-validation technique, we are getting k=35 as the optimal value for k.
+
+* Building a model based on the most-optimal value of k*
+```{r}
+model_final <- train.kknn(formula=factor(Response) ~. , data =credit_data, ks=35, scale=TRUE)
+```
+This model will have the same accuracy of 68% as the value given by cross-validation.
+
+
+*Solution for 3.1 (b)*
+*Splitting the data into Train/Validation and Test data sets and computing the optimal classifier.*
+*I am going to apply this on knn technique to classify the data. I will be splitting the data into 3 segments*
+1) Training data set (80% of the data)
+2) Validation data set (10% of the data)
+3) Test data set (10% of the data)
+
+*First, I will build a knn model using the Training data and Validation data set to get the most optimal value of k. I will iterate from k values 1 to 100 for analysis. From this model, I will arrive at the most optimal value of k and its accuracy. Next, I will run re-train the model against the test data and calculate its accuracy.*
+
+```{r}
+
+library(kknn)
+set.seed(2)
+
+credit_data <- read.table("credit_card_data-headers.txt", header = TRUE, sep = "\t", dec = ".")
+
+#Renaming the last column (dependent variable) to Response
+names(credit_data)[names(credit_data) == "R1"] <- "Response"
+
+#Getting 80% of data and using that for training
+rows_train <- sample(1:nrow(credit_data),as.integer(0.8*nrow(credit_data)))
+train_data <- credit_data[rows_train,]
+other_data <- credit_data[-rows_train,]
+
+# Splitting the remianing 20% data into test and validation data sets
+rows_val <- sample(1:nrow(other_data),as.integer(0.5*nrow(other_data)))
+val_data <- other_data[rows_val,]
+test_data <- other_data[-rows_val,]
+
+## Validating counts
+#nrow(train_data)   523
+#nrow(val_data)     65
+#nrow(test_data)    66
+
+## Building a knn model for values of k from 1 to 100 using the training and validation data
+fitted_pred = rep(0,(nrow(val_data)))
+results = data.frame(k_value=numeric(),accuracy=numeric())
+
+for (kv in 1:100) {
+    knn_model <- kknn(Response ~., train_data, val_data,k=kv,kernel="optimal", scale=TRUE)
+    fitted_pred <- floor(0.5 + fitted(knn_model))
+    acc = sum(fitted_pred == val_data[,11]) / nrow(val_data)
+    results[nrow(results)+1,] <- c(kv,acc)
+    }
+
+plot(results)
+results
+```
+
+*From the plot and the results, we get maximum accuracy for k=35(90.76) from this experiment. Since our cross-validation results indicated k=35 as an optimal fit, I will use the same value for this outcome as the best classifier for the data.*
+
+Now, running the model against the test data to get the true model accuracy (for k=35)
+
+```{r}
+knn_model_final <- kknn(Response ~., train_data, test_data,k=35,kernel="optimal", scale=TRUE)
+fitted_pred_final <- floor(0.5 + fitted(knn_model_final))
+acc_final = sum(fitted_pred_final == test_data[,11]) / nrow(test_data)
+
+acc_final
+
+```
+The true model accuracy is 87.87% which is lower than the output from the training/validation model. This is expected due to randomness. However, since the model accuracy did not drop drastically from the train/validation model, we can assume that is is a fair outcome at this point.
+
+
+#Question 4.1 
+#Describe a situation or problem from your job, everyday life, current events, etc., for which a clustering model would be appropriate. List some (up to 5) predictors that you might use.
+
+
+I was working for an Automobile Insurance company and one situation where clustering would be appropriate in this sector would be identifying groups of insurance policy holders that have high average claim costs. This would help insurance companies target these customers to help reducing these costs. Predictors to cluster these groups would be:
+a)	Policy holder location
+b)	Policy holder age
+c)	Temperature/Weather conditions of the city of policy holders
+d)	Size of the vehicle owned
+e)	Driving patterns of the Policy holder(Telematics data).
+
+
+#Question 4.2 
+
+#The iris data set iris.txt contains 150 data points, each with four predictor variables and one categorical response. The predictors are the width and length of the sepal and petal of flowers and the response is the type of flower. The data is available from the R library datasets and can be accessed with iris once the library is loaded. It is also available at the UCI Machine Learning Repository (https://archive.ics.uci.edu/ml/datasets/Iris). The response values are only given to see how well a specific method performed and should not be used to build the model.
+#Use the R function kmeans to cluster the points as well as possible. Report the best combination of predictors, your suggested value of k, and how well your best clustering predicts flower type.
+
+
+For this problem, I am following the below approach
+1) Firstly, to get good predictors, I am assuming k=3 and running the model against different combination of predictors. The predictor with minimal within cluster sum of squares is considered a good predictor.
+2) After getting the good predictor, I will iterate models for k from 1 to 10 and plot and elbow graph to get the optimal value for k.
+3) After arriving at the optimal k-value, I am plotting the clusters against the original response values to get the purity metric or accuracy of the algorithm.
+
+```{r}
+set.seed(3)
+
+iris_data <- read.table("iris.txt", header = TRUE, stringsAsFactors = F)
+#Normalizing the data
+normalize <- function(x){
+  return ((x-min(x))/(max(x)-min(x)))
+}
+
+iris_data$Sepal.Length<- normalize(iris_data$Sepal.Length)
+iris_data$Sepal.Width<- normalize(iris_data$Sepal.Width)
+iris_data$Petal.Length<- normalize(iris_data$Petal.Length)
+iris_data$Petal.Width<- normalize(iris_data$Petal.Width)
+
+
+#To get the best predictor , assume k=3 and compute the model for various combination of the predictors.
+iris_response <- factor(iris_data[,5])
+
+#Computing the Total Within cluster sum of squares considering all combination of predictors
+model1_ss <- kmeans(iris_data[,1:4],3)$tot.withinss
+
+model2_ss <- kmeans(iris_data[,1:2],3)$tot.withinss
+
+model3_ss <- kmeans(iris_data[,1:3],3)$tot.withinss
+
+model4_ss <- kmeans(iris_data[,1:4],3)$tot.withinss
+
+model5_ss <- kmeans(iris_data[,2:3],3)$tot.withinss
+
+model6_ss <- kmeans(iris_data[,2:4],3)$tot.withinss
+
+model7_ss <- kmeans(iris_data[,3:4],3)$tot.withinss
+
+model8_ss <- kmeans(iris_data[,c("Sepal.Length","Sepal.Width","Petal.Length")],3)$tot.withinss
+
+model9_ss <- kmeans(iris_data[,c("Sepal.Length","Sepal.Width","Petal.Width")],3)$tot.withinss
+
+model10_ss <- kmeans(iris_data[,c("Sepal.Length","Petal.Length","Petal.Width")],3)$tot.withinss
+
+model11_ss <- kmeans(iris_data[,c("Sepal.Width","Petal.Length","Petal.Width")],3)$tot.withinss
+
+predictor_results = c(model1_ss,model2_ss,model3_ss,model4_ss,model5_ss,model6_ss,model7_ss,model8_ss,model9_ss,model10_ss,model11_ss)
+predictor_results
+```
+
+From the predictor results, we see that model_7ss has minimal sum of squares value of 1.701875
+*From the predictor results, the most compact cluster with minimum sum of clusters squares is for "Petal Length" and "Petal Width"*
+
+```{r}
+#Considering the best combination of predictors
+iris_predictors <- iris_data[,3:4]
+iris_response <- factor(iris_data[,5])
+
+# Considering k-values from 1 to 10 and creating models and identifying the performance
+results = data.frame(k_value=numeric(),withins=numeric(),accuracy=numeric())
+for (k in 1:10) {
+  model <- kmeans(iris_predictors,k,nstart=5,iter.max=20)
+  results[nrow(results)+1,] <- c(k,model$tot.withinss,(model$betweenss/model$totss)*100)
+}
+
+#Plotting an elbow graph to see which size would be optimal
+plot(1:10, results$withins,
+     type="b", pch = 19, frame = FALSE,
+     xlab="Number of clusters K",
+     ylab="TotWithinss of Petal.Length and Petal.Width")
+
+```
+
+The Elbow plot for predictors indicates k=3 is a good value. 
+Beyond k=3, even though the total within sum of clusters reduce, they do not have much of an impact on the model.
+
+The predictors we are using for this best model are "Petal Length", "Petal Width".
+
+```{r}
+model_final <- kmeans(iris_predictors,3)
+table(model_final$cluster,iris_response)
+```
+
+From the table, we can conclude that the segment 3 corresponds to Virginica, segment 1 : Versicolor and segment 2 : Setosa
+Total correct clustering: 50+48+46 = 144
+
+*Accuracy = 144/150 = 96%*

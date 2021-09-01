@@ -1,0 +1,1 @@
+This folder contains a modeling assignment implementing Principal component analysis on "uscrime.txt" to identify the top principal components. Using these Principal components, a regression model is built to estimate the predictions.

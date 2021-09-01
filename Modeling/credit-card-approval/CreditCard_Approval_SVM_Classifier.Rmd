@@ -1,0 +1,161 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+#The files credit_card_data.txt (without headers) and credit_card_data-headers.txt (with headers) contain a dataset with 654 data points, 6 continuous and 4 binary predictor variables.  It has anonymized credit card applications with a binary response variable (last column) indicating if the application was positive or negative. The dataset is the “Credit Approval Data Set” from the UCI Machine Learning Repository (https://archive.ics.uci.edu/ml/datasets/Credit+Approval) without the categorical variables and without data points that have missing values.
+
+
+# 1) Using the support vector machine function ksvm contained in the R package kernlab, find a good classifier for this data. Show the equation of your classifier, and how well it classifies the data points in the full data set.
+
+
+*Identifying a good classifier for the data using below R-code. Tried for different values of C to observe the accuracy.*
+
+```{r}
+#install.packages("kernlab")
+#install.packages("data.table")
+library(kernlab)
+library(data.table)
+options(scipen=999)
+
+set.seed(2)
+credit_data <- read.table("credit_card_data-headers.txt", header = TRUE, sep = "\t", dec = ".")
+
+predictors <- as.matrix(credit_data[,1:10])
+response_variable <- as.factor(credit_data[,11])
+
+range <- list(0.005,75,100,3000)
+results <- data.frame(C_Value=numeric(),
+                 error=numeric(),
+                 Accuracy=numeric())
+
+for (c in range) {
+  svm_model <- ksvm(predictors,response_variable,type="C-svc",scaled=TRUE,kernel="vanilladot",C=c)
+  results[nrow(results)+1, ] <- c(c, svm_model@error, (sum(predict(svm_model,predictors) == response_variable) / nrow(credit_data)))
+}
+
+results
+```
+
+**The results indicate that the model has maximum accuracy of 86.39% and the accuracy declines for higher values of C. At this trade-off value, our model classifies 86% of the data correctly. I am using C-value as 100 for this.**
+
+
+```{r}
+#To get the coefficients of the equation from the model
+svm_model <- ksvm(predictors,response_variable,type="C-svc",scaled=TRUE,kernel="vanilladot",C=100)
+# a1....am
+a <- colSums(svm_model@xmatrix[[1]] * svm_model@coef[[1]])
+#a0
+a0 <- svm_model@b
+
+paste("The coefficients of the classifier are ",a,sep="")
+paste("The intercept of the classifier is ",a0,sep = "")
+
+# see what the model predicts and how that matches with the actual data
+pred <- predict(svm_model,predictors)
+accuracy <- sum(pred == response_variable) / nrow(credit_data)
+paste("Model accuracy is ",accuracy*100, " percent")
+```
+
+**The equation of the classifier would look like:**
+
+y = -0.0010065348*V1 -0.0011729048*V2 -0.0016261967*V3 + 0.0030064203*V4 + 1.0049405641*V5
+    -0.0028259432*V6 +0.0002600295*V7 -0.0005349551*V8 -0.0012283758*V9 +0.1063633995*V10 -0.08158492
+
+**The model is 86.39144% accurate with the available data. Error in classification is 13.60856%. **.
+
+# 2) You are welcome, but not required, to try other (nonlinear) kernels as well; we’re not covering them in this course, but they can sometimes be useful and might provide better predictions than vanilladot
+
+```{r}
+set.seed(2)
+library(kernlab)
+library(data.table)
+
+credit_data <- read.table("credit_card_data-headers.txt", header = TRUE, sep = "\t", dec = ".")
+
+predictors <- as.matrix(credit_data[,1:10])
+response_variable <- as.factor(credit_data[,11])
+
+myKernels = c("vanilladot","polydot","rbfdot")
+results <- data.frame(C_Value=numeric(),
+                 Kernel=character(),
+                 error=numeric(),
+                 Accuracy=numeric())
+
+for(i in 1:length(myKernels))
+{
+    model <-  ksvm(predictors,response_variable,type="C-svc",kernel=myKernels[[i]],C=100,scaled=TRUE)
+    results[nrow(results)+1, ] <- c(100, myKernels[[i]], model@error, (sum(predict(model,predictors) == response_variable) / nrow(credit_data)))
+}
+
+results
+```
+
+**Radial Basis Kernel function gives a better accuracy of 95.25 percent for the same value of C=100, since it is a non-linear model and classifies the outcomes better than a linear model.**
+
+# 3) Using the k-nearest-neighbors classification function kknn contained in the R kknn package, suggest a good value of k, and show how well it classifies that data points in the full data set.  Don’t forget to scale the data (scale=TRUE in kknn).
+
+The below R-code usess kknn package to test the data leaving out one row in the dataset to build a model and get the best accuracy. 
+
+```{r}
+#install.packages("kknn")
+library(kknn)
+
+set.seed(2)
+credit_data <- read.table("credit_card_data-headers.txt", header = TRUE, sep = "\t", dec = ".")
+#Renaming the last column (dependent variable) to Response
+names(credit_data)[names(credit_data) == "R1"] <- "Response"
+
+## Manually iterating for values of k from 1 to 100 and identifying which has the best K value using kknn classification function.
+
+fitted_pred = rep(0,(nrow(credit_data)))
+all_k = rep(0,100) ## Considering k values from 1 to 100
+results = data.frame(k_value=numeric(),accuracy=numeric())
+
+for (kv in 1:100) {
+    for (i in 1:nrow(credit_data)) {
+    #Manually applying leave-one-out cross validation by taking one row for test data and remaining dataset as testing data.
+    knn_model <- kknn(Response ~., credit_data[-i,], credit_data[i,],k=kv, scale=TRUE)
+    fitted_pred[i] <- floor(0.5 + fitted(knn_model))
+    }
+    acc = sum(fitted_pred == credit_data[,11]) / nrow(credit_data)
+    results[nrow(results)+1,] <- c(kv,acc)
+}
+
+results
+```
+
+**The k-value 12 gives the most highest accuracy of 85.32110 %.** 
+**Although accuracy is the same for k-value 15 as well, computationally, k=12 would be more efficient than comparing against 15 neighbors for the same accuracy. Hence k=12 would be an optimal value for k.** 
+
+
+**Another Observation:**
+A similar model, when built using train.kknn (which does this leave-one out cross validation) within its algorithm, suggests a different value for k.
+
+```{r}
+#install.packages("kknn")
+library(kknn)
+
+set.seed(2)
+
+credit_data <- read.table("credit_card_data-headers.txt", header = TRUE, sep = "\t", dec = ".")
+#Renaming the last column (dependent variable) to Response
+names(credit_data)[names(credit_data) == "R1"] <- "Response"
+
+model <- train.kknn(formula=Response ~ ., data = credit_data, kmax = 100,scale=TRUE)
+model
+
+acc <- sum(floor(0.5 + predict(model,credit_data)) == credit_data[,11])/nrow(credit_data)
+paste("Model accuracy with this is : ", acc*100)
+```
+**Substituting k-value = 12 (best accuracy from kknn) in this model,**
+
+```{r}
+model <- train.kknn(formula=Response ~ ., data = credit_data, ks = 12,scale=TRUE)
+acc <- sum(floor(0.5 + predict(model,credit_data)) == credit_data[,11])/nrow(credit_data)
+paste("Model accuracy with this is : ", acc*100)
+
+```
+
+**The accuracy for the k-values when done manually(using kknn) and through train.kknn varies. This could be because of the difference in the distance metrics used in the algorithms that changes the error in mis-classifications. This could be a good way to compare and understand which algorithm to use**

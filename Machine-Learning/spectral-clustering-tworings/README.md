@@ -1,0 +1,3 @@
+KMeans clustering algorithm works best  in clustering data points based on their closeness or compactness. In connectivity, the points in a cluster are either immediately next to each other (epsilon distance) or connected. Even if the distance is less, they are not put in the same cluster. Spectral clustering is one of the techniques to follow this approach. In this analysis, we understand how spectral clustering performs better in clustering data having the shape of two-rings (outer and inner), by comparing it with KMeans clustering.  
+
+**Results : Refer to the ipynb file for results and interpretation**

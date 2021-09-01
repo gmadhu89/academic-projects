@@ -1,0 +1,243 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+
+Using the same crime data set uscrime.txt as in Questions 8.2 and 9.1, find the best model you can using 
+(a) a regression tree model, and 
+(b) a random forest model.  
+In R, you can use the tree package or the rpart package, and the randomForest package.  For each model, describe one or two qualitative takeaways you get from analyzing the results (i.e., don’t just stop when you have a good model, but interpret it too).
+
+##### SOLUTION
+
+## a) Building a Regression Tree Model
+
+# As we have learnt, a Regression Tree is a model that is built from the CART (Classification and Regression) methodology. In this solution, we will analyze the US Crime data set, which has a continuous response variable (Crime) using a Regression Tree Model to predict the response variable, and interpret its outcome.
+
+R-code to extract the data
+```{r}
+crime <- read.table("uscrime.txt",sep="\t",dec=".",header = TRUE)
+str(crime)
+```
+# We can observe that the data set has 47 records with 15 precitor variables. The first observation here is that the total number of records is very less in our data with many factors, which increases the probability of over-fitting and multicollinearity issues. Let's see how the regression tree model best fits this small dataset.
+
+R-code to Build a Regression Tree Model
+
+```{r}
+#Getting the required packages. We will be using the "tree" package for this.
+
+if (!require(tree)) install.packages("tree")
+library(tree)
+
+set.seed(1)
+
+crime_tree <- tree(Crime ~., data=crime)
+summary(crime_tree)
+```
+Observations from Summary:
+a) From the summary of the model, we observe that 4 variables from the dataset are used to construct the decision tree : (Po1 , Pop, LF, NW)
+
+b) There are 7 leaf nodes in the tree
+c) We can also observe the distribution of residuals.
+
+Comparing this to the PCA analysis we did in the previous assignment, the most correlated variables to the first principal component(PC1), that explained majority of the variance in the data were "Wealth" "Ineq"   "Ed"     "So"     "Po2".  It is interesting that Regression chooses a different set of variables to perform branching.
+
+```{r}
+#Plotting the tree 
+
+plot(crime_tree)
+text(crime_tree)
+title("US Crime Regression tree")
+
+```
+We can visualize the nodes and the leaves structure here. The first node represents the regression model with the entire data, and the subsequent splits are shown per variable used for branching. 
+If Po1 < 7.65 , branch to a left node. 
+   If Pop < 22.5, branch to the left node.
+      If LF< 0.5675, branch again.
+
+The leaves have values which represent the average of the predicted responses.
+
+We can view this using the below R-functions:
+
+```{r}
+crime_tree$frame
+
+crime_tree$where
+
+```
+The $frame component of the model gives the "Deviance" at every node, which we can use to compare to see improvement.
+
+From the frame, we can see that the Deviance of the first node(all data) is 6880927.66. 
+After the first branch, the deviance improved by (6880927.66  - (779243.48 + 3604162.50))  =  2497522
+
+The $where component of the model tells us the row numbers of the original elements that were positioned in which particular leaf in the tree.
+
+# We can plot the predictions against the original responses.
+
+```{r}
+## Plotting the predicted values and original value
+y_pred = predict(crime_tree)
+plot(y_pred,crime$Crime)
+
+```
+# From the plot, we can observe that the Regression Tree predicted y-values are the same for many points, for which the corresponding original Crime variable has a continous value. This is because the regression tree averages the prediction of all its responses and gives a single value as the response.
+
+# The reason why average of the values are used instead of a linear model may be because of fewer points in each leaf, and avoiding over-fitting the model to the specific points. 
+
+# Now that we know this, let's try to build a linear regression model with the points in one of the leaf nodes and see what is shown.
+
+```{r}
+#Extracting the points in the leaf node(having response 1049.0)
+
+crime_sub <- crime[c(7,16,23,28,32,40),]
+lm_test <- lm(Crime~., data = crime_sub)
+
+summary(lm_test)
+plot(lm_test$fitted.values, crime_sub$Crime)
+
+```
+# The summary considers only the first 5 values (may be because of the small number of data, the other factors become very insignificant)
+# From the plot, we can observe that there is a clear case of over-fitting, the fitted values are almost close to the true values of y.
+
+# Now let's Perform Pruning on the tree model
+```{r}
+# Displaying the size (i.e number of leaf nodes and the deviance after default pruning)
+
+prune.tree(crime_tree)$size
+prune.tree(crime_tree)$dev
+
+```
+We can observe that the deviance is improving at every split.
+```{r}
+# Building a manual pruning and limiting the number of nodes to 5
+
+set.seed(123)
+max_nodes <- 5
+prune_manual <- prune.tree(crime_tree, best = max_nodes)
+
+plot(prune_manual)
+text(prune_manual)
+
+summary(prune_manual)
+
+
+```
+We observe that only 3 factors are considered in this case, however the residual mean deviance(which is related to the Mean squared error) is higher than the original model.
+
+Let's try with 4 nodes.
+
+```{r}
+# Building a manual pruning and limiting the number of nodes to 4
+
+set.seed(123)
+max_nodes <- 4
+prune_manual <- prune.tree(crime_tree, best = max_nodes)
+
+plot(prune_manual)
+text(prune_manual)
+
+summary(prune_manual)
+
+```
+This gives a higher residual error, and uses only 2 factors for building the tree. Reducing the nodes does not give a very good predictability in the case of this Regression tree model.
+
+# Let's perform cross validation and try to check the deviance
+```{r}
+#Performing a cross-validated tree
+
+cv.tree(crime_tree)$size
+cv.tree(crime_tree)$dev
+
+plot(cv.tree(crime_tree)$size , cv.tree(crime_tree)$dev, type = "b")
+
+```
+# The results with cross-validation also indicates that a tree with 7 nodes gives the best predictability with this data set.
+
+# Let's calculate the R2 of this tree after pruning
+```{r}
+# Building the final tree and predicting outcomes
+tree_final <- prune.tree(crime_tree, best = 7)
+y_pred_final = predict(tree_final)
+
+# Calculating R2 value
+# R2 = 1 - SSE/TSS
+# SSE = Sum of squares of error, TSS = Total Sum of Squares
+
+TSS = sum((crime$Crime - mean(crime$Crime))^2)
+SSE = sum((y_pred_final - crime$Crime)^2)
+
+R2 = 1 - (SSE/TSS)
+R2
+
+```
+# Takeaways:
+R2 of the model is 72% which is pretty high, considering that we have considered only 4 factors. This could be a case of over-fitting. Pop and NW are significant factors of the model, it is interesting to note that when we pruned for 4 nodes, Pop was dropped was NW was used for the branching.
+
+## b) Building a Random Forest 
+
+Random forest is a collection of multiple regression trees to find the best predicted response. Let's fit the US crime data to the Random Forest package in R.
+```{r}
+# Giving Random samples of variables at a time = 4
+if (!require(randomForest)) install.packages("randomForest")
+library(randomForest)
+
+
+```
+
+
+```{r}
+set.seed(123)
+crime_rf <- randomForest(Crime ~ ., data=crime, nodesize = 5, mtry = 4, importance = TRUE, ntree = 500)
+y_pred_rf <- predict(crime_rf)
+#Calculating R2
+TSS_rf = sum((crime$Crime - mean(crime$Crime))^2)
+SSE_rf = sum((y_pred_rf - crime$Crime)^2)
+
+R2_rf = 1 - (SSE_rf/TSS_rf)
+R2_rf
+
+```
+The R2 value is 42.46% - much lower than a regression tree model built in the first part of the question. Let's loop through different values of mtry and nodesize to see which one gives the best R2 value
+
+```{r}
+# Looping from a minimum of 2 nodes to 15 nodes and 
+# for number of variables to be randomnly sampled, as per documentation, the recommended is p/3, where p = number of variables. Let's choose mtry from 1 to 5.
+set.seed(123)
+table_rf <- data.frame(matrix(nrow=5, ncol=3))
+colnames(table_rf) <- c("nodes", "mtry", "R2")
+i=1
+
+suppressWarnings(for (nodes in 2:15) {
+    for (m in 1:5) {
+    model <- randomForest(Crime ~ ., data=crime, importance = TRUE, nodesize = nodes, mtry = m)
+    predict <- predict(model)
+    RSS <- sum((predict - crime$Crime)^2)
+    TSS <- sum((crime$Crime - mean(crime$Crime))^2)
+    R2 <- 1 - RSS/TSS
+    table_rf[i,1] <- nodes
+    table_rf[i,2] <- m
+    table_rf[i,3] <- R2
+    i = i + 1
+}
+})
+
+table_rf[which.max(table_rf[,3]),]
+
+```
+The best R2 value with this dataset for a Random forest model is 46.37%, which is for a random forest having trees of nodesize 4 and number of variables randomly samples = 3.
+
+# The Random Forest Model with best model parameters from the above
+
+```{r}
+set.seed(123)
+crime_rf <- randomForest(Crime ~ ., data=crime,importance = TRUE, nodesize = 4, mtry = 3)
+
+# Importance of the model
+importance(crime_rf)
+
+```
+# From the results, we see that as per %IncMSE which measures the most significant ariables, Po1, Po2, Prob and NW contirbute the most in this model. This is similar to the regression tree variables. 
+
+# Takeaways
+Random forest has a lower accuracy than a Regression tree for this dataset.
+Accuracy is better with less number of nodes (4 in this case). This could be because more number of nodes leads to overfitting due to the small size of the dataset

@@ -1,0 +1,48 @@
+0	Action	negative	1233175
+1	Action	neutral	983244
+2	Action	positive	3242228
+3	Adventure	negative	744406
+4	Adventure	neutral	547245
+5	Adventure	positive	1966404
+6	Animation & Modeling	negative	3180
+7	Animation & Modeling	neutral	22492
+8	Animation & Modeling	positive	55109
+9	Casual	negative	127620
+10	Casual	neutral	165853
+11	Casual	positive	431748
+12	Design & Illustration	negative	3180
+13	Design & Illustration	neutral	22492
+14	Design & Illustration	positive	55109
+15	Early Access	negative	74786
+16	Early Access	neutral	63329
+17	Early Access	positive	193330
+18	Free to Play	negative	28180
+19	Free to Play	neutral	30037
+20	Free to Play	positive	69795
+21	Indie	negative	776182
+22	Indie	neutral	675177
+23	Indie	positive	2360285
+24	Massively Multiplayer	negative	288842
+25	Massively Multiplayer	neutral	173127
+26	Massively Multiplayer	positive	504052
+27	Photo Editing	negative	3180
+28	Photo Editing	neutral	22492
+29	Photo Editing	positive	55109
+30	RPG	negative	563375
+31	RPG	neutral	454738
+32	RPG	positive	1704209
+33	Racing	negative	60238
+34	Racing	neutral	60346
+35	Racing	positive	174809
+36	Simulation	negative	386405
+37	Simulation	neutral	318398
+38	Simulation	positive	1213547
+39	Sports	negative	64792
+40	Sports	neutral	59000
+41	Sports	positive	170964
+42	Strategy	negative	307589
+43	Strategy	neutral	207693
+44	Strategy	positive	926788
+45	Utilities	negative	3180
+46	Utilities	neutral	22492
+47	Utilities	positive	55109

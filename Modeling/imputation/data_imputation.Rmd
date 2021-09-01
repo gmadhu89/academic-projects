@@ -1,0 +1,175 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+The breast cancer data set breast-cancer-wisconsin.data.txt from http://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/  (description at http://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Original%29 ) has missing values.
+1.	Use the mean/mode imputation method to impute values for the missing data.
+2.	Use regression to impute values for the missing data.
+3.	Use regression with perturbation to impute values for the missing data.
+4.	(Optional) Compare the results and quality of classification models (e.g., SVM, KNN) build using 
+(1) the data sets from questions 1,2,3; 
+(2) the data that remains after data points with missing values are removed; and 
+(3) the data set when a binary variable is introduced to indicate missing values.
+
+
+## Solution
+## For this problem, I have outlined the steps that I have followed:
+
+1) We will first import the dataset into R and do exploratory data analysis. Identify the missing data in the dataset and get the count and percentage of the missing data.
+2) Use the mice package in R to perform data imputation for the missing data using the below methods:
+  a) Mean
+  b) Regression
+  c) Regression with perturbation
+  d) Adding a Binary Variable to the data set
+  e) Deleting the records with missing value
+3) After doing data imputation and viewing the results, we will perform a KNN classification model to get the accuracy of he each of the datasets above and analyze the results.
+
+```{r}
+#install.packages("mice")
+
+# Reading the data set and making the missing values as NA
+cancer_data <- read.table("breast-cancer-wisconsin.data.txt", sep=",",header = FALSE, na= c('?'))
+nrow(cancer_data)
+
+# Naming the columns as per the dataset description
+colnames(cancer_data) <- c('Code','Clump_Thickness','Cell_Size','Cell_Shape','Adhesion','SingleCell_Size','Bare_Nuclei','Chrommatin','Normal_Nucleoli','Mitoses',"class")
+```
+# The data set has 699 observations.
+# Identifying the missing data in the dataset
+
+```{r}
+sum(is.na(cancer_data)[,7])
+```
+#We notice that there are 16 missing records in the data set all of them in the 7th column corresponding to Bare Nucleii . When compared to the total dataset count, this accounts to 2.2% of the entire data.
+
+```{r}
+# Using MICE package in R to perform imputation of missing data
+library(mice)
+library(dplyr)
+
+# Observing the missing data using MICE
+md.pattern(cancer_data[,-11])
+```
+
+```{r}
+# Observing the content of data in the Bare Nucleii Column that has missing values
+unique(cancer_data$Bare_Nuclei)
+```
+# We observe that this column has a continuous range of values. So we could use mean imputation of data instead of mode, which is mostly used for categorical values.
+
+# Performing mean imputation and observing the data.
+```{r}
+# Mean Imputation
+mean_imputation <- mice(cancer_data, m=5, meth = 'mean')
+mean_imputation$imp
+```
+
+# We can observe that new data is generated only for the column "Bare Nucleii" since only that column has missing values.
+
+# Performing Regression Imputation
+```{r}
+#Regression Imputation
+regression_impute <- mice(cancer_data, m=5, meth = 'norm.predict')
+regression_impute$imp
+```
+
+# Performing Regression with perturbation imputation and observing the data.
+```{r}
+# Regression with perturbation Imputation
+reg_preturb_impute <- mice(cancer_data, m=5, meth = 'norm.nob')
+reg_preturb_impute$imp
+```
+
+## Creating new dataframes with imputed data using each method
+
+```{r}
+
+## Creating new dataframes with imputed data using each method
+cancer_mean <- complete(mean_imputation)
+cancer_reg <- complete(regression_impute)
+cancer_regpert <- complete(reg_preturb_impute)
+```
+
+## Observing the data after imputation, checking for NA values
+```{r}
+
+nrow(cancer_mean)
+sum(is.na(cancer_mean))
+
+nrow(cancer_reg)
+sum(is.na(cancer_reg))
+
+nrow(cancer_regpert)
+sum(is.na(cancer_regpert))
+```
+# We see that all the missing values have now been replaced with the values as per the method we have defined.
+
+```{r}
+## Creating a dataset after removing all the rows that have NA values
+cancer_delete <- na.omit(cancer_data)
+nrow(cancer_delete)
+```
+# The data points with 16 missing values have been dropped.
+
+```{r}
+## Introducing a binary variable to indicate missing values. Later this and the BareNucleii can be added to the model.
+cancer_binary <- cancer_data %>% mutate(missng = ifelse(is.na(Bare_Nuclei),1,0))
+cancer_binary[is.na(cancer_binary)] <- 0
+nrow(cancer_binary)
+```
+## Now we can build KNN models for each of these datasets and compare the accuracy. We will perform cross-validation of the data and obtain and optimal value for k. With this optimal value, we will build the model and compare the performances.
+
+```{r}
+## Building KNN models for each of the datasets and measuring accuracy for them
+set.seed(1)
+library(caret)
+library(kknn)
+
+## Building KNN models using cross-validation and tuning to get the optimal value for k and building model on train data.
+## Testing the final accuracy of each model using test dataset.
+
+## The datasets we have to compare are:
+#a) cancer_mean  : Data set with missing values imputed with mean
+#b) cancer_reg   : Data set with missing values imputed with Regression predictions
+#c) cancer_regpert : Data set with missing values imputed with Regresion with perturbation
+#d) cancer_delete : Data set with missing data points removed
+#e) cancer_binary : Data set with an additional binary variable indicating missing values.
+
+datasets = list(cancer_mean,cancer_reg,cancer_regpert,cancer_delete,cancer_binary)
+
+results = list(mean=NULL,reg=NULL,regpert=NULL,del=NULL,binary=NULL)
+
+for (i in seq_along(datasets)) {
+  
+  df = as.data.frame(datasets[i])
+  
+  set.seed(123)
+
+# Building a knn model by applying 5-fold cross-validation on the data
+trControl <- trainControl(method  = "repeatedcv",
+                          number  = 5,
+                          repeats = 5)
+
+tuneGrid <- expand.grid(k = 1:100)
+
+model <- train(factor(class) ~ .,
+               method     = "knn",
+               trControl  = trControl,
+               metric     = "Accuracy",
+               data       = df,
+               tuneGrid = tuneGrid)
+
+model_final <- train.kknn(formula=factor(class) ~. , data =df, ks=model$bestTune$k, scale=TRUE)
+
+fitted_values <- unlist(fitted(model_final))
+accuracy <- sum(fitted_values == df$class)/ nrow(df)
+
+results[[i]] = accuracy
+
+}
+cbind(datasets,results)
+```
+# From the results, we observe that all the models perform very similar for this dataset. Mean imputation has a slightly higher accuracy than the rest, which could be because the Bare Nucleii column has continuous range of values, and mean would be the best method to replace the missing values. 
+# The number of missing values in the dataset being very less(2% of the total data set) could also be another reason for the model accuracy being similar after the data impuation methods too. If we have more missing data, we could observe more differences in each method's model accuracy.

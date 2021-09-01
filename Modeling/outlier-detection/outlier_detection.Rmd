@@ -1,0 +1,93 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Using crime data from the file uscrime.txt (http://www.statsci.org/data/general/uscrime.txt, description at http://www.statsci.org/data/general/uscrime.html), test to see whether there are any outliers in the last column (number of crimes per 100,000 people).  Use the grubbs.test function in the outliers package in R.
+
+
+# After importing the CSV data, I am first trying to check if the data is normally distributed or not, since this is the assumption for grubbs.test. After this, I visually look for possible outliers using a box plot
+```{r}
+set.seed(123)
+crime_data = read.table("uscrime.txt",header=TRUE, sep="\t",dec =".")
+
+head(crime_data)
+
+```
+# Checking if the data is normally distributed or not using R shapiro.test function
+```{r}
+if (!require(dplyr)) install.packages("dplyr")
+library(dplyr)
+
+shapiro.test(crime_data$Crime)
+
+```
+
+shapiro.test interprets p-value based on the NULL hypothesis that the data is normally distributed. If the p-value is very small (<0.05), we will reject the NULL Hypothesis. In this case the p-value is very low = 0.001, which indicates that the data is not normally distributed. One interpretation of this could be that the data has significant outliers that could be scewing the normal curve.
+
+# Running a QQ Plot
+```{r}
+qqnorm(crime_data$Crime)
+qqline(crime_data$Crime)
+#hist(crime_data$Crime)
+```
+If all the data points lie on one line, we could say that the data is distributed lienarly. Based on this, we see that the data looks linear until the upper edge where there seems to be a few outliers deviating from the linear curve.
+
+# Visualizing the data in the last column (number of crimes per 10000 people) using a box-plot
+
+```{r}
+boxplot(crime_data$Crime)
+```
+
+From the box-plot, we can notice that that there are a few data points outside the max line, which could be possible outliers 
+
+#Now let's try to find the outliers using grubbs.test function in R
+
+# Check 1 : Even though we see outliers above the max data as per the box plot, let's try to run a grubbs.test function to check outliers for both max and min values of the data.
+```{r}
+if (!require(outliers)) install.packages("outliers")
+library(outliers)
+
+grubbs.test(crime_data$Crime,type=11)
+```
+
+# As per the results from the Grubbs test, p-value = 1, which does not give us sufficient evidence to reject a NULL Hypothesis (That this data set has both max and min outliers). Both 342 and 1993 are not considered outliers in this case. Both may not be , but one extreme could be an outlier.
+
+# Now let's consider only max values.
+```{r}
+grubbs.test(crime_data$Crime,type=10)
+which.max(crime_data$Crime)
+```
+
+# For highest value Grubbs test, p-value = 0.07887, it is lower than the before, but it's greater than 0.05. So we do not have the evidence to reject NULL Hypothesis for a 95% Confidence interval in this case too.
+
+# Now let's consider only min values.
+
+```{r}
+grubbs.test(crime_data$Crime,type=10,opposite = TRUE)
+which.min(crime_data$Crime)
+```
+# Clearly, the lowest value alone also does not have sufficient evidence to be rejected on a Hypothesis test
+
+# One more way of utilizing grubbs.test is to identify if there are 2 values that could be outliers(type=20). However, trying that option gives an error, since that works only for a smaller range of data (0-30). Blindly removing data would not give the expected results we want to achieve, so this would not be a good idea to test.
+
+# Another analysis could be removing the highest point(1993) that looks like an outlier visually and repeat the grubbs test again (Let's assume p-value 0.1 as the cut off for rejecting NULL Hyothesis)
+```{r}
+#Removing the first highest outlier 1993 from the dataset
+crime_data_new <- crime_data$Crime[-match(1993,crime_data$Crime)]
+grubbs.test(crime_data_new,type=10)
+
+#Removing the second highest outlier 1969 and continuing grubbs.test
+crime_data_new2 <- crime_data_new[-match(1969,crime_data_new)]
+grubbs.test(crime_data_new2,type=10)
+
+#Removing the third highest outlier 1969 and continuing grubbs.test
+crime_data_new3 <- crime_data_new2[-match(1674 ,crime_data_new2)]
+grubbs.test(crime_data_new3,type=10)
+
+```
+# Observation: From this , we can observe that the first outlier 1993 was significanlty far off from the other valies and removing that gave a lower p-value of 0.02. As we continued to remove the other outliers, the p-value reduced a little (0.17 to 0.11) but indicates these are not significantly far off. This is just an observation to understand how the grubbs.test works.
+
+
+# Solution : Visually, we may observe a few points as outliers in a bar plot, but statistically, grubbs.test function does not find any outliers in this specific column of the dataset. The extreme points (highest value 1993), could just be a part of the  dataset and the data may not be normally distributed as we assume in this case.
