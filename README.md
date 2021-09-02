@@ -1,2 +1,2 @@
 # academic-projects
-Projects created during Masters in Computational Data Analytics program at Georgia Institute of Technology.
+Projects created during Graduate program in Computational Data Analytics.
