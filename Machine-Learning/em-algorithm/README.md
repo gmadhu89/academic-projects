@@ -6,7 +6,4 @@ ized; the original image can be recovered by map the vector into a matrix).
 
 I first use PCA to reduce the dimensionality of the data before applying to EM. We will put all "6" and "2" digits together, to project the original data into 4-dimensional vectors.
 
-Results:  
-EM_Algorthm.ipynb - Contains results of the EM Algorithm IMplementation.  
-
 **Source code will be provided upon request**
