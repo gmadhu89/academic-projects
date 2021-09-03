@@ -5,7 +5,7 @@ is stored as a row in the file.
 
 I have constructed an ISOMAP using Euclidean distance and Manhattan distance metrics. Finally, the results of ISOMAP are compared against PCA and evaluated.  
 
-ISOMP.html - Contains results of ISOMAP implementation.  
+ISOMP.pdf - Contains results of ISOMAP implementation.  
 
 **Source code will be provided upon request**.
 
