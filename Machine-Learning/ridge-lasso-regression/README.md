@@ -10,6 +10,4 @@ The dataset contains the following useful fields
 • Price/SQ.ft: price of the house per square foot.  
 • Status: Short Sale, Foreclosure and Regular.    
 
-Ridge_Lasso_Regression.html - Contains results to implementation.  
-
 ** Source code will be provided upon request.**
