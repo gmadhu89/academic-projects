@@ -7,6 +7,6 @@ filed work and personal emails, and hence the word 'george' and the area code '6
 2. A classifier is also constructed using Random Forest model. 
 3. A one-class SVM approach for spam filtering is experimented. Data is randomly shuffled and partitioned to use 80% for training and the remaining 20% for testing. All non-spam emails are extracted from the training block (80% of data you have selected) to build the one-class kernel SVM using RBF kernel (you can turn the kernel bandwidth to achieve good performance). Then , it is applied on the 20% of data reserved for testing (thus this is a novelty detection situation). The total misclassification error rate on this testing data is then reported.   
 
-CART_RandomForest.html - Contains results of the classification.  
+CART_RandomForest.pdf - Contains results of the classification.  
 
 ** Source code will be provided upon request.**
