@@ -3,7 +3,7 @@ This folder contains implementation simple face recognition of an image dataset 
 1. Analyze images of 2 subjects (persons) from Yale Face dataset, and obtain the top 6 eigen faces for each subject.  
 2. Perform classification of image using Eigen faces (after PCA), by calculating projection residual of test images with the eigen faces for each subject.  
 
-Face_Recognition.html - Contains results of the implementation for face recognition.  
+Face_Recognition.pdf - Contains results of the implementation for face recognition.  
 
 Source code will be provided upon request.
 
