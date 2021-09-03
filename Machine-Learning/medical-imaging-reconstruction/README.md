@@ -9,6 +9,6 @@ Now the question is: can we model y as a linear combination of the columns of x 
 
 We use LASSO/ Ridge to perform this compression and reconstruct the image and observe their error rates.  
 
-medical_imaging_reconstruction.html - Contains results of the reconstruction.  
+medical_imaging_reconstruction.pdf - Contains results of the reconstruction.  
 
 **Source code will be provided upon request.**
