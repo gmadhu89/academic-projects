@@ -3,4 +3,4 @@ This folder contains implementation of Spectral clustering algorithm to a footba
 Spectral_Clustering_Clusters.py   : Code for Spectral clustering Implementation  
 Spectral_Clustering_Notebook.ipynb  : Jupyter notebok displaying cluster results.  
 
-**Results : Refer to the ipynb file for results and interpretation**
+**Source code will be provided upon request**
