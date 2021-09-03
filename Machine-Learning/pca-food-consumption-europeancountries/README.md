@@ -2,6 +2,6 @@ This folder contains results of Principal component Analysis on a food consumpti
 
 PCA was implemented from the scratch for this analysis.
 
-Results can be viewed in the attached PCA_FoodConsumption.html file.  
+Results can be viewed in the attached PCA_FoodConsumption.pdf file.  
 
 **Source code will be provided upon request.**
